@@ -1,0 +1,148 @@
+:root {
+    --bs-font-sans-serif: 'Inter', system-ui, -apple-system, sans-serif;
+    --safety-yellow: #FFD700;
+    --safety-orange: #FF8C00;
+    --industrial-dark: #1A202C;
+}
+
+body {
+    font-family: var(--bs-font-sans-serif);
+    background-color: #f8f9fa;
+}
+
+/* Theme Overrides */
+.bg-industrial {
+    background-color: var(--industrial-dark) !important;
+}
+
+.text-industrial {
+    color: var(--industrial-dark) !important;
+}
+
+.btn-safety {
+    background-color: var(--safety-orange);
+    color: white;
+    border: none;
+}
+
+.btn-safety:hover {
+    background-color: #e67e00;
+    color: white;
+}
+
+.text-safety-orange {
+    color: var(--safety-orange) !important;
+}
+
+.text-safety-yellow {
+    color: var(--safety-yellow) !important;
+}
+
+.card {
+    border: none;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Accordion Styling */
+.accordion-button:not(.collapsed) {
+    background-color: var(--safety-yellow);
+    color: var(--industrial-dark);
+    font-weight: 600;
+}
+
+.accordion-button:focus {
+    border-color: var(--safety-orange);
+    box-shadow: 0 0 0 0.25rem rgba(255, 140, 0, 0.25);
+}
+
+/* Chat Widget Animations */
+.chat-widget {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1040;
+    bottom: 80px;
+    right: 24px;
+    width: 350px;
+    height: 500px;
+    transform-origin: bottom right;
+}
+
+.chat-widget.closed {
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Footer Hover Effects */
+.hover-warning:hover {
+    color: var(--safety-yellow) !important;
+}
+
+/* --- Extracted Inline Styles --- */
+
+.toast-layer {
+    z-index: 1100;
+}
+
+.logo-box-md {
+    width: 32px;
+    height: 32px;
+}
+
+.logo-box-sm {
+    width: 24px;
+    height: 24px;
+}
+
+.nav-badge-pos {
+    font-size: 0.6em;
+    transform: translate(-50%, 5px) !important;
+}
+
+.hero-slide-row {
+    min-height: 300px;
+}
+
+.hero-icon-xl {
+    font-size: 12rem;
+}
+
+.achievement-circle {
+    width: 100px;
+    height: 100px;
+}
+
+.cta-decoration-circle {
+    width: 300px;
+    height: 300px;
+    transform: translate(30%, -30%);
+}
+
+.footer-icon-sm {
+    font-size: 14px;
+}
+
+.img-cover-200 {
+    height: 200px;
+    object-fit: cover;
+}
+
+.chat-body-scroll {
+    height: 380px;
+}
+
+.chat-bubble-width {
+    max-width: 85%;
+}
+
+.chat-fab-style {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+}
