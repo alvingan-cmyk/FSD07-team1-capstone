@@ -1,0 +1,144 @@
+:root {
+    --bs-font-sans-serif: 'Inter', system-ui, -apple-system, sans-serif;
+    --safety-yellow: #FFD700;
+    --safety-orange: #FF8C00;
+    --industrial-dark: #1A202C;
+}
+
+body {
+    font-family: var(--bs-font-sans-serif);
+    background-color: #f8f9fa;
+}
+
+/* Logo Name */
+.logoname {
+    gap: 0;
+}
+.logoname-bold {
+    font-weight: bold;
+}
+
+.logoname-light {
+    font-weight: lighter;
+    margin: 3px 0 0  0;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+/* Theme Overrides */
+.bg-industrial {
+    background-color: var(--industrial-dark) !important;
+}
+
+.text-industrial {
+    color: var(--industrial-dark) !important;
+}
+
+.btn-safety {
+    background-color: var(--safety-orange);
+    color: white;
+    border: none;
+}
+
+.btn-safety:hover {
+    background-color: #e67e00;
+    color: white;
+}
+
+.text-safety-orange {
+    color: var(--safety-orange) !important;
+}
+
+.text-safety-yellow {
+    color: var(--safety-yellow) !important;
+}
+
+.card {
+    border: none;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Accordion Styling */
+.accordion-button:not(.collapsed) {
+    background-color: var(--safety-yellow);
+    color: var(--industrial-dark);
+    font-weight: 600;
+}
+
+.accordion-button:focus {
+    border-color: var(--safety-orange);
+    box-shadow: 0 0 0 0.25rem rgba(255, 140, 0, 0.25);
+}
+
+/* Chat Widget Animations */
+.chat-widget {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1040;
+    bottom: 80px;
+    right: 24px;
+    width: 350px;
+    height: 500px;
+    transform-origin: bottom right;
+}
+
+.chat-widget.closed {
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Footer Hover Effects */
+.hover-warning:hover {
+    color: var(--safety-yellow) !important;
+}
+
+/* --- NEW STYLES FOR ADDED PAGES --- */
+
+/* Login Page */
+.login-split-screen {
+    min-height: 100vh;
+}
+.login-bg-image {
+    background: url('https://picsum.photos/1200/1200?grayscale') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+.login-bg-image::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: rgba(26, 32, 44, 0.85); /* Industrial Dark Overlay */
+}
+
+/* Dashboard */
+.progress-thin {
+    height: 6px;
+}
+.dashboard-stat-card {
+    border-left: 4px solid var(--safety-orange);
+}
+
+/* Course Page */
+.course-hero {
+    background-color: var(--industrial-dark);
+    color: white;
+    padding: 60px 0;
+}
+.instructor-avatar {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--safety-yellow);
+}
+
+/* Search Page */
+.search-filter-sidebar {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+}

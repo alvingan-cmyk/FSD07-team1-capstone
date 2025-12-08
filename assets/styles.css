@@ -10,6 +10,21 @@ body {
     background-color: #f8f9fa;
 }
 
+/* Logo Name */
+.logoname {
+    gap: 0;
+}
+.logoname-bold {
+    font-weight: bold;
+}
+
+.logoname-light {
+    font-weight: lighter;
+    margin: 3px 0 0  0;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
 /* Theme Overrides */
 .bg-industrial {
     background-color: var(--industrial-dark) !important;

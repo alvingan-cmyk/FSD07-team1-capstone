@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MicroEdge Academy - Search</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-industrial sticky-top shadow">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+            <img class="logo" src="assets/logo/microedge-academy-logo.svg" width="50" height="auto" alt="microedge academy logo">
+                <span class="logoname logoname-bold">MicroEdge</span>
+                <span class="logoname logoname-light">Academy</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-3">
+            <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="search.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="auth.html#signUpForm">Sign Up</a></li>
+                    <!-- <li class="nav-item position-relative">
+                        <a class="nav-link" href="#">
+                            Certifications
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light nav-badge-pos">
+                                2 Expiring
+                                <span class="visually-hidden">expiring certifications</span>
+                            </span>
+                        </a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a href="auth.html">
+                            <button class="btn btn-safety btn-sm fw-bold px-3"
+                                onclick="showToast('Profile', 'Opening profile settings...', 'info')">Dashboard</button></a>
+                    </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-white border-bottom py-4">
+      <div class="container">
+          <h2 class="fw-bold mb-3" id="search-query-display">Course Catalog</h2>
+          <form action="search.html" method="GET" class="d-flex gap-2">
+            <input name="q" class="form-control form-control-lg" type="search" placeholder="Search by topic, course title or ID..." aria-label="Search">
+            <button class="btn btn-dark btn-lg" type="submit">Search</button>
+          </form>
+      </div>
+  </div>
+
+  <div class="container py-5 flex-grow-1">
+      <div class="row">
+          <!-- Filter Sidebar -->
+          <div class="col-lg-3 mb-4">
+              <div class="search-filter-sidebar shadow-sm">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                      <h6 class="fw-bold m-0">Filters</h6>
+                      <a href="search.html" class="small text-decoration-none">Clear All</a>
+                  </div>
+                  
+                  <div class="mb-4">
+                      <label class="form-label small fw-bold text-muted text-uppercase">By Topic</label>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="cat1">
+                          <label class="form-check-label" for="cat1">General Safety</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="cat2">
+                          <label class="form-check-label" for="cat2">Construction</label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="cat3">
+                          <label class="form-check-label" for="cat3">Electrical</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="cat4">
+                        <label class="form-check-label" for="cat4">Health</label>
+                    </div>
+                  </div>
+
+                  <div class="mb-4">
+                    <label class="form-label small fw-bold text-muted text-uppercase">By Level</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="lvl1">
+                        <label class="form-check-label" for="lvl1">Beginner</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="lvl2">
+                        <label class="form-check-label" for="lvl2">Intermediate</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="lvl3">
+                        <label class="form-check-label" for="lvl3">Advanced</label>
+                    </div>
+                </div>
+                
+                <button class="btn btn-outline-dark w-100 btn-sm">Apply Filters</button>
+              </div>
+          </div>
+
+          <!-- Results -->
+          <div class="col-lg-9">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="text-muted small">Showing results</span>
+                  <select class="form-select form-select-sm w-auto">
+                      <option>Newest First</option>
+                      <option>Most Popular</option>
+                  </select>
+              </div>
+
+              <div id="search-results-container" class="row">
+                  <!-- JS Injection -->
+              </div>
+
+              <nav aria-label="Page navigation" class="mt-5">
+                <ul class="pagination justify-content-center">
+                  <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                  <li class="page-item active"><a class="page-link bg-dark border-dark" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link text-dark" href="#">Next</a></li>
+                </ul>
+              </nav>
+          </div>
+      </div>
+  </div>
+
+  <footer class="bg-industrial text-light pt-4 pb-2 mt-auto">
+    <div class="container text-center">
+        <p class="small text-muted">&copy; 2026 MicroEdge Academy</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+      }
+    }
+  </script>
+  <script type="module" src="./scripts/search.js"></script>
+</body>
+</html>

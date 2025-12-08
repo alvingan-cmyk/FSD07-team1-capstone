@@ -4,16 +4,20 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MicroEdge Academy - Workplace Safety Learning</title>
+    <title>MicroEdge Academy</title>
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+    <!-- CSS Styles -->
     <link rel="stylesheet" href="./assets/styles.css">
 
+    <!-- Import Map -->
     <script type="importmap">
     {
       "imports": {
@@ -37,7 +41,9 @@
           </div> -->
 
                 <!-- Company Logo (SVG) -->
-                <svg version="1.1" width="44.174175" height="24.18697" id="svg7" xmlns="http://www.w3.org/2000/svg"
+                <img class="logo" src="assets/logo/microedge-academy-logo.svg" width="50" height="auto"
+                    alt="microedge academy logo">
+                <!-- <svg version="1.1" width="44.174175" height="24.18697" id="svg7" xmlns="http://www.w3.org/2000/svg"
                     xmlns:svg="http://www.w3.org/2000/svg">
                     <path
                         d="m 33.986439,0.88156253 c 1.65045,1.27777197 2.65811,3.31491697 3.71484,5.07812497 0.22276,0.369317 0.22276,0.369317 0.45001,0.746094 0.3161,0.52443 0.63175,1.049136 0.94696,1.574097 0.42125,0.700094 0.84445,1.398944 1.26898,2.0970505 0.4248,0.69889 0.84804,1.398715 1.27155,2.098384 0.15886,0.260854 0.31772,0.521708 0.48139,0.790467 1.31783,2.186286 2.36023,3.953889 1.97174,6.584533 -0.56686,1.609861 -1.58264,2.814604 -3,3.75 -1.52193,0.727877 -3.08872,0.712956 -4.67188,0.203125 -2.0368,-1.114477 -2.926761,-2.556847 -4.075556,-4.523437 -0.38166,-0.649319 -0.77827,-1.289144 -1.17444,-1.929688 -0.162425,-0.263935 -0.324845,-0.527871 -0.49219,-0.799804 -0.75103,-1.218747 -1.50442,-2.436034 -2.25781,-3.653321 -0.1367,-0.220913 -0.273405,-0.441826 -0.414245,-0.669433 -0.198586,-0.320735 -0.198586,-0.320735 -0.401186,-0.647949 -0.12806,-0.207419 -0.25612,-0.414837 -0.38806,-0.62854 -0.244305,-0.391889 -0.491655,-0.7819 -0.742432,-1.1696785 -0.11227,-0.174225 -0.224538,-0.34845 -0.34021,-0.527954 -0.09888,-0.151042 -0.19775,-0.302084 -0.299623,-0.457703 -0.833632,-1.532702 -0.704247,-3.514478 -0.49237,-5.195618 0.69402,-1.460251 1.837595,-2.496716 3.250001,-3.24999997 1.938315,-0.585909 3.59502,-0.338311 5.394531,0.53125 z"
@@ -48,18 +54,20 @@
                     <path
                         d="m 7.8165175,13.069063 c 1.667767,0.761263 2.5413515,1.73163 3.2978525,3.372071 0.500171,1.448994 0.556295,2.982275 -0.120117,4.375 -1.0916065,1.601812 -2.2044185,2.851307 -4.1523445,3.284179 -1.673715,0.192529 -2.93492,0.130393 -4.321289,-0.878906 -1.33382,-1.15456 -2.28827497,-2.477054 -2.50878897,-4.273437 -0.06539,-1.578111 0.119554,-2.817891 1.08007797,-4.097657 1.907273,-1.986926 4.008545,-2.601194 6.724609,-1.78125 z"
                         fill="#f3b533" id="path4" style="stroke-width:0.25" />
-                </svg>
+                </svg> -->
 
-                <span class="fw-bold">MicroEdge Academy</span>
+                <span class="logoname logoname-bold">MicroEdge</span>
+                <span class="logoname logoname-light">Academy</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center gap-3">
-                    <li class="nav-item"><a class="nav-link active" href="#">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
-                    <li class="nav-item position-relative">
+                    <li class="nav-item"><a class="nav-link active" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="search.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="auth.html">Sign Up</a></li>
+                    <!-- <li class="nav-item position-relative">
                         <a class="nav-link" href="#">
                             Certifications
                             <span
@@ -68,10 +76,11 @@
                                 <span class="visually-hidden">expiring certifications</span>
                             </span>
                         </a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
-                        <button class="btn btn-safety btn-sm fw-bold px-3"
-                            onclick="showToast('Profile', 'Opening profile settings...', 'info')">My Profile</button>
+                        <a href="auth.html">
+                            <button class="btn btn-safety btn-sm fw-bold px-3"
+                                onclick="showToast('Profile', 'Opening profile settings...', 'info')">Dashboard</button></a>
                     </li>
                 </ul>
             </div>
@@ -216,7 +225,7 @@
 
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-end mb-4 gap-3">
                 <div>
-                    <h2 class="fw-bold text-dark mb-1">Featured Training</h2>
+                    <h2 class="fw-bold text-dark mb-1">Featured Courses</h2>
                     <p class="text-muted mb-0">Essential safety modules required for your role.</p>
                 </div>
                 <div>
@@ -236,6 +245,36 @@
             <div id="course-grid" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 <!-- Courses will be rendered here by JS -->
             </div>
+
+            <!-- About Us -->
+            <div class="row align-items-center mb-5 m-5">
+                <div class="col-md-6">
+                    <h3 id="about" class="fw-bold">About Us</h3>
+                    <p class="text-secondary">We are committed to revolutionizing workplace safety standards through
+                        practical, accessible, and engaging learning. By blending industry expertise with cutting-edge
+                        technology, we ensure your team returns home safely every day.</p>
+                        
+                    <div class="row mt-4">
+                        <div class="col-6 mb-3">
+                            <h5 class="fw-bold">Our Mission</h5>
+                            <small class="text-muted">We deliver practical, industry-focused safety training that equips
+                                learners to handle real on-site challenges and work safely every day.</small>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <h5 class="fw-bold">Our Goal</h5>
+                            <small class="text-muted">We aim to be Singapore’s leading provider of construction safety
+                                training, equipping teams with practical skills to maintain safe worksites and drive
+                                continuous safety improvement.</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img src="./assets/img/group-photo-02.png" width="600" class="rounded shadow" alt="Team">
+                    <p class="text-center text-muted small mt-2">Group photo of the team</p>
+                </div>
+            </div>
+
+
 
             <!-- Achievements / Badges Section -->
             <div class="my-5 py-4">
@@ -329,6 +368,40 @@
                 </div>
             </div>
 
+            <!-- Join as Trainer -->
+            <div class="bg-light p-5 rounded-3 border m-5">
+                <h2 class="fw-bold mb-4">Join us as a Trainer!</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <form id="trainerForm"
+                            onsubmit="event.preventDefault(); showToast('Application Sent', 'We will review your profile shortly.', 'success'); this.reset();">
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Subject</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Upload Resume</label>
+                                <input type="file" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-dark px-5">Submit</button>
+                        </form>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center justify-content-center">
+                        <div class="text-center text-muted opacity-25">
+                            <i class="bi bi-envelope-paper" style="font-size: 8rem;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- FAQ Accordion -->
             <div class="mt-5 pt-3">
                 <h2 class="fw-bold text-center mb-4">Frequently Asked Questions</h2>
@@ -395,7 +468,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </main>
 
@@ -581,6 +653,8 @@
 
     <!-- Application Logic -->
     <script src="./scripts/script.js"></script>
+
+
 
 </body>
 

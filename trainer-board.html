@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MicroEdge Academy - Trainer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-light d-flex flex-column min-vh-100">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-industrial sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img class="logo" src="assets/logo/microedge-academy-logo.svg" width="50" height="auto"
+                    alt="microedge academy logo">
+                <span class="logoname logoname-bold">MicroEdge</span>
+                <span class="logoname logoname-light">Academy</span>
+            </a>
+            <div class="d-flex align-items-center gap-3">
+                <div class="text-white d-none d-md-block">Hello, <span class="fw-bold">John Wick</span></div>
+                <div class="dropdown">
+                    <a href="#" class="d-block link-light text-decoration-none dropdown-toggle"
+                        data-bs-toggle="dropdown">
+                        <img src="https://picsum.photos/40/40?random=user" alt="mdo" width="32" height="32"
+                            class="rounded-circle border border-warning">
+                    </a>
+                    <ul class="dropdown-menu text-small shadow">
+                        <li><a class="dropdown-item" href="?role=trainee">Trainee View</a></li>
+                        <li><a class="dropdown-item" href="?role=trainer">Trainer View</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="login.html">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5 flex-grow-1" id="dashboard-view">
+        <div class="row g-4">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="card shadow-sm border-0 mb-4 text-center p-4">
+                    <div class="mb-3">
+                        <img src="https://picsum.photos/100/100?random=user" class="rounded-circle shadow-sm"
+                            alt="Profile">
+                    </div>
+                    <h5 class="fw-bold mb-1">John Wick</h5>
+                    <p class="text-secondary small mb-3">Safety Officer</p>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-safety fw-bold btn-sm">Edit Profile</button>
+                    </div>
+                </div>
+
+                <div class="list-group shadow-sm border-0 rounded-3 overflow-hidden">
+                    <a href="#" class="list-group-item list-group-item-action active bg-industrial border-0 py-3"><i
+                            class="bi bi-speedometer2 me-2"></i> Dashboard</a>
+                    <a href="#" class="list-group-item list-group-item-action border-0 py-3"><i
+                            class="bi bi-journal-bookmark me-2"></i> My Courses</a>
+                    <a href="#" class="list-group-item list-group-item-action border-0 py-3"><i
+                            class="bi bi-people me-2"></i> Community</a>
+                    <a href="#" class="list-group-item list-group-item-action border-0 py-3"><i
+                            class="bi bi-credit-card me-2"></i> Billing</a>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <h3 id="dashboard-title" class="fw-bold mb-4">Dashboard</h3>
+
+                <!-- Trainee View -->
+                <div id="trainee-dashboard">
+                    <!-- Current Course -->
+                    <div class="card bg-white border-0 shadow-sm p-4 mb-4 border-start border-5 border-warning">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="fw-bold mb-0">Personal Protective Equipment (PPE) Essentials</h5>
+                            <span class="badge bg-warning text-dark">60%</span>
+                        </div>
+                        <p class="text-secondary small">Learn the correct usage and fitting of hard hats, eye
+                            protection, and respiratory gear.</p>
+                        <div class="progress progress-thin mb-3 bg-light">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 60%"></div>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-dark btn-sm px-3">Resume</button>
+                            <button class="btn btn-outline-secondary btn-sm px-3">View Topics</button>
+                        </div>
+                    </div>
+
+                    <h5 class="fw-bold mb-3">Learning Status</h5>
+                    <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+                        <!-- Cards -->
+                        <div class="col">
+                            <div class="card h-100 border-0 shadow-sm p-3">
+                                <div class="d-flex gap-3">
+                                    <img src="https://picsum.photos/80/80?random=1"
+                                        class="rounded course-thumbnail-small" alt="">
+                                    <div>
+                                        <h6 class="fw-bold mb-1">Fire Safety</h6>
+                                        <small class="text-success d-block mb-1"><i class="bi bi-check-circle-fill"></i>
+                                            Completed</small>
+                                        <div class="progress progress-thin w-100" style="width: 100px;">
+                                            <div class="progress-bar bg-success" style="width: 100%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 border-0 shadow-sm p-3">
+                                <div class="d-flex gap-3">
+                                    <img src="https://picsum.photos/80/80?random=2"
+                                        class="rounded course-thumbnail-small" alt="">
+                                    <div>
+                                        <h6 class="fw-bold mb-1">LOTO Safety</h6>
+                                        <small class="text-muted d-block mb-1">Not Started</small>
+                                        <div class="progress progress-thin w-100" style="width: 100px;">
+                                            <div class="progress-bar bg-secondary" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5 class="fw-bold mb-3">Explore Recommendations</h5>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="wireframe-placeholder p-5 rounded">Course A</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="wireframe-placeholder p-5 rounded">Course B</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trainer View (Hidden by default) -->
+                <div id="trainer-dashboard" class="d-none">
+                    <div class="card border-0 shadow-sm p-4 mb-4">
+                        <h5 class="fw-bold mb-3">Course Engagement</h5>
+                        <!-- Mock Chart -->
+                        <div class="d-flex align-items-end justify-content-between h-50 px-2" style="height: 150px;">
+                            <div class="bg-primary rounded-top" style="width: 10%; height: 40%;"></div>
+                            <div class="bg-primary rounded-top" style="width: 10%; height: 70%;"></div>
+                            <div class="bg-warning rounded-top" style="width: 10%; height: 100%;"></div>
+                            <div class="bg-primary rounded-top" style="width: 10%; height: 60%;"></div>
+                            <div class="bg-primary rounded-top" style="width: 10%; height: 80%;"></div>
+                        </div>
+                        <div class="text-center mt-2 small text-secondary">Weekly Activity</div>
+                    </div>
+
+                    <h5 class="fw-bold mb-3">Recent Attendees</h5>
+                    <div class="row row-cols-2 row-cols-md-4 g-3">
+                        <div class="col text-center">
+                            <img src="https://picsum.photos/60/60?random=u1" class="rounded-circle mb-2" alt="User">
+                            <h6 class="fw-bold small mb-0">Alice M.</h6>
+                            <span class="badge bg-success-subtle text-success rounded-pill"
+                                style="font-size: 0.7em;">Passed</span>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://picsum.photos/60/60?random=u2" class="rounded-circle mb-2" alt="User">
+                            <h6 class="fw-bold small mb-0">Bob D.</h6>
+                            <span class="badge bg-warning-subtle text-warning rounded-pill" style="font-size: 0.7em;">In
+                                Progress</span>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://picsum.photos/60/60?random=u3" class="rounded-circle mb-2" alt="User">
+                            <h6 class="fw-bold small mb-0">Charlie</h6>
+                            <span class="badge bg-danger-subtle text-danger rounded-pill"
+                                style="font-size: 0.7em;">Failed</span>
+                        </div>
+                        <div class="col text-center">
+                            <img src="https://picsum.photos/60/60?random=u4" class="rounded-circle mb-2" alt="User">
+                            <h6 class="fw-bold small mb-0">Diana P.</h6>
+                            <span class="badge bg-success-subtle text-success rounded-pill"
+                                style="font-size: 0.7em;">Passed</span>
+                        </div>
+                    </div>
+
+                    <h5 class="fw-bold my-4">My Courses</h5>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="wireframe-placeholder p-4 rounded">Course Mgmt</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="wireframe-placeholder p-4 rounded">Course Mgmt</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="wireframe-placeholder p-4 rounded">Add New +</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Chat Widget (Reused) -->
+    <div id="chat-widget" class="card position-fixed shadow-lg chat-widget closed">
+        <div class="card-header bg-industrial text-white d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-2">
+                <span class="bg-success p-1 rounded-circle"></span>
+                <strong>Safety AI</strong>
+            </div>
+        </div>
+        <div id="chat-messages" class="card-body overflow-auto bg-light d-flex flex-column gap-2"
+            style="height: 380px;">
+            <div class="d-flex justify-content-start">
+                <div class="bg-white border text-dark p-2 rounded" style="max-width: 85%;">
+                    Hello! Need help with your dashboard?
+                </div>
+            </div>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="input-group">
+                <input id="chat-input" type="text" class="form-control" placeholder="Ask..."
+                    onkeypress="handleChatKeyPress(event)">
+                <button class="btn btn-industrial" type="button" onclick="sendMessage()"><i
+                        class="bi bi-send"></i></button>
+            </div>
+        </div>
+    </div>
+    <button id="chat-toggle-btn" onclick="toggleChat()"
+        class="btn btn-safety btn-lg rounded-circle position-fixed bottom-0 end-0 m-4 z-3 shadow"
+        style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+        <i id="chat-icon" class="bi bi-chat-dots-fill fs-4"></i>
+    </button>
+
+    <footer class="bg-white border-top py-4 text-center text-muted small mt-auto">
+        &copy; 2026 MicroEdge Academy
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./scripts/trainer.js"></script>
+</body>
+
+</html>
