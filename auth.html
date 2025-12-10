@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - MicroEdge Academy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/auth.css">
+    
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <style>
+        .auth-split-image {
+            background-image: url('./assets/img/c02-t01.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;"></div>
+
+    <div class="container-fluid g-0">
+        <div class="row g-0 min-vh-100">
+            <!-- Left Side - Image (Hidden on mobile) -->
+            <div class="col-lg-6 d-none d-lg-block auth-split-image position-relative">
+                <div class="position-absolute top-0 start-0 p-4">
+                    <a href="index.html" class="text-white text-decoration-none d-flex align-items-center">
+                        <!-- <a href="index.html" class="text-white text-decoration-none d-flex align-items-center gap-2"> -->
+                        <img class="logo" src="assets/logo/microedge-academy-logo.svg" width="50" height="auto"
+                            alt="microedge academy logo">
+
+                        <span class="logoname logoname-bold">MicroEdge</span>
+                        <span class="logoname logoname-light">Academy</span>
+                    </a>
+                </div>
+                <div class="position-absolute bottom-0 start-0 p-5 text-white bg-dark bg-opacity-50 w-100">
+                    <h3>"Safety brings first aid to the uninjured."</h3>
+                    <p class="mb-0">— F.S. Hughes</p>
+                </div>
+            </div>
+
+            <!-- Right Side - Forms -->
+            <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center p-5 bg-white">
+                <div class="w-100" style="max-width: 400px;">
+
+                    <div class="d-lg-none mb-4 text-center">
+                        <a href="index.html" class="text-dark text-decoration-none">
+                            <img src="assets/logo/microedge-academy-logo.svg" alt="MicroEdge Academy Logo" width="100"
+                                class="mb-2">
+                            <!-- <h4 class="fw-bold">MicroEdge Academy</h4> -->
+                            <h1 class="logoname logoname-bold">MicroEdge</h1>
+                            <h5 class="logoname logoname-light">Academy</h5>
+                        </a>
+                    </div>
+
+                    <div class="d-flex justify-content-end mb-4">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-outline-dark active" id="btnSignIn"
+                                onclick="toggleAuth('signin')">Login</button>
+                            <button type="button" class="btn btn-outline-dark" id="btnSignUp"
+                                onclick="toggleAuth('signup')">Sign Up</button>
+                        </div>
+                    </div>
+
+                    <!-- Sign In Form -->
+                    <div id="signInForm">
+                        <h2 class="fw-bold mb-1">Welcome back</h2>
+                        <p class="text-secondary mb-4">Please enter your details to sign in.</p>
+                        <form onsubmit="handleLogin(event)">
+                            <div class="mb-3">
+                                <label class="form-label">Email address</label>
+                                <input type="email" class="form-control" required placeholder="john@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control" required placeholder="••••••••">
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label small" for="rememberMe">Remember me</label>
+                                </div>
+                                <a href="#" class="small text-decoration-none text-safety-orange">Forgot password?</a>
+                            </div>
+                            <button type="submit" class="btn btn-dark w-100 py-2 fw-bold">Sign In</button>
+                        </form>
+                    </div>
+
+                    <!-- Sign Up Form (Hidden by default) -->
+                    <div id="signUpForm" style="display: none;">
+                        <h2 class="fw-bold mb-1">Create Account</h2>
+                        <p class="text-secondary mb-4">Join 12,000+ safety professionals.</p>
+                        <form onsubmit="handleSignup(event)">
+                            <div class="mb-3">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" required placeholder="John Doe">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email address</label>
+                                <input type="email" class="form-control" required placeholder="john@example.com">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control" required placeholder="Create a password">
+                            </div>
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" required>
+                                    <label class="form-check-label small">I agree to the <a href="#">Terms</a> and <a
+                                            href="#">Privacy Policy</a></label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-safety w-100 py-2 fw-bold">Create Account</button>
+                        </form>
+                    </div>
+
+                    <div class="text-center mt-4 border-top pt-3">
+                        <small class="text-muted">Or continue with</small>
+                        <div class="d-flex justify-content-center gap-3 mt-2">
+                            <button class="btn btn-light border"><i class="bi bi-google"></i></button>
+                            <button class="btn btn-light border"><i class="bi bi-microsoft"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./script.js"></script>
+
+   
+
+    <script>
+        function toggleAuth(mode) {
+            const signIn = document.getElementById('signInForm');
+            const signUp = document.getElementById('signUpForm');
+            const btnSignIn = document.getElementById('btnSignIn');
+            const btnSignUp = document.getElementById('btnSignUp');
+
+            if (mode === 'signin') {
+                signIn.style.display = 'block';
+                signUp.style.display = 'none';
+                btnSignIn.classList.add('active');
+                btnSignUp.classList.remove('active');
+            } else {
+                signIn.style.display = 'none';
+                signUp.style.display = 'block';
+                btnSignIn.classList.remove('active');
+                btnSignUp.classList.add('active');
+            }
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            // Using the global toast function from script.js (module needs to attach to window)
+            if (window.showToast) window.showToast('Success', 'Logging in...', 'success');
+            setTimeout(() => window.location.href = 'trainer-board.html', 1000);
+        }
+
+        function handleSignup(e) {
+            e.preventDefault();
+            if (window.showToast) window.showToast('Success', 'Account created! Redirecting...', 'success');
+            setTimeout(() => window.location.href = 'trainee-board.html', 1000);
+        }
+    </script>
+
+
+
+</body>
+
+</html>

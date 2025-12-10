@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MicroEdge Academy - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-industrial sticky-top shadow">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+            <img class="logo" src="assets/logo/microedge-academy-logo.svg" width="50" height="auto" alt="microedge academy logo">
+
+     <span class="logoname logoname-bold">MicroEdge</span>
+                <span class="logoname logoname-light">Academy</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-3">
+            <li class="nav-item"><a class="nav-link active" href="dashboard.html">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="search.html">Courses</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown">
+                   <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center text-dark fw-bold" style="width: 30px; height: 30px;">RM</div>
+                   Richard Mars
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Billing</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item text-danger" href="landing.html">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-4">
+      <div class="row g-4">
+          <!-- Sidebar / Profile Summary -->
+          <div class="col-lg-3">
+              <div class="card shadow-sm border-0 text-center p-4 mb-4">
+                  <div class="mx-auto bg-light rounded-circle p-1 mb-3" style="width: 100px; height: 100px;">
+                      <img src="https://picsum.photos/200" class="rounded-circle w-100 h-100 object-fit-cover" alt="Profile">
+                  </div>
+                  <h5 class="fw-bold mb-1">Richard Mars</h5>
+                  <p class="text-muted small">Senior Welder</p>
+                  <hr>
+                  <div class="row text-center">
+                      <div class="col-6 border-end">
+                          <h4 class="fw-bold mb-0">12</h4>
+                          <small class="text-muted">Courses</small>
+                      </div>
+                      <div class="col-6">
+                        <h4 class="fw-bold mb-0">85%</h4>
+                        <small class="text-muted">Avg Score</small>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="list-group shadow-sm rounded-3">
+                <a href="#" class="list-group-item list-group-item-action active bg-industrial border-0"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
+                <a href="#" class="list-group-item list-group-item-action border-0"><i class="bi bi-journal-text me-2"></i> My Learning</a>
+                <a href="#" class="list-group-item list-group-item-action border-0"><i class="bi bi-graph-up me-2"></i> Skills Tracking</a>
+                <a href="#" class="list-group-item list-group-item-action border-0"><i class="bi bi-person-gear me-2"></i> Edit Profile</a>
+                <a href="#" class="list-group-item list-group-item-action border-0"><i class="bi bi-credit-card me-2"></i> Billing</a>
+              </div>
+          </div>
+
+          <!-- Main Content -->
+          <div class="col-lg-9">
+              
+            <!-- Resume Learning -->
+            <div class="card bg-white border-0 shadow-sm mb-4 dashboard-stat-card">
+                <div class="card-body p-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <span class="badge bg-warning text-dark mb-2">In Progress</span>
+                            <h4 class="fw-bold">Personal Protective Equipment (PPE) Essentials</h4>
+                            <p class="text-muted mb-2">Module 3: Respiratory Protection Standards</p>
+                            <div class="progress mb-3" style="height: 10px;">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center text-md-end">
+                            <h2 class="fw-bold text-safety-orange mb-0">60%</h2>
+                            <small class="text-muted d-block mb-2">Completed</small>
+                            <a href="course.html?id=1" class="btn btn-dark btn-sm px-4">Resume</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Status -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="fw-bold mb-0">My Courses</h5>
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-outline-secondary active">Active</button>
+                    <button class="btn btn-outline-secondary">Completed</button>
+                </div>
+            </div>
+
+            <div id="dashboard-course-list">
+                <!-- Injected via Script -->
+            </div>
+
+            <!-- Recommendations -->
+             <div class="mt-5">
+                <h5 class="fw-bold mb-3">Explore Recommendations</h5>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h6 class="fw-bold">Advanced First Aid</h6>
+                                <p class="text-muted small">Essential for safety officers.</p>
+                                <a href="course.html?id=3" class="btn btn-link p-0 text-decoration-none text-safety-orange">View Course <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <h6 class="fw-bold">Crane Operations</h6>
+                                <p class="text-muted small">Certification for heavy machinery.</p>
+                                <a href="course.html?id=5" class="btn btn-link p-0 text-decoration-none text-safety-orange">View Course <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+
+          </div>
+      </div>
+  </div>
+
+  <footer class="bg-industrial text-light pt-4 pb-2 mt-5">
+    <div class="container text-center">
+        <p class="small text-muted">&copy; 2026 MicroEdge Academy</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+      }
+    }
+  </script>
+  <script type="module" src="./scripts/dashboard.js"></script>
+</body>
+</html>
