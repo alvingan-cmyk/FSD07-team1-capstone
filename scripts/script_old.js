@@ -6,7 +6,7 @@ const SAMPLE_COURSES = [
         id: '1',
         title: 'Personal Protective Equipment (PPE)',
         description: 'Learn the correct selection, use, and maintenance of PPE including hard hats, eye protection, and respiratory gear.',
-        image: 'assets/img/c01-t01.jpg',
+        image: 'assets/img/course_00.jpg',
         duration: '15 mins',
         modules: 4,
         level: 'Beginner',

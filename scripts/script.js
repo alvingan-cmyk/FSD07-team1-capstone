@@ -4,8 +4,8 @@
 const SAMPLE_COURSES = [
     {
     id: '1',
-    title: 'Personal Protective Equipment (PPE)',
-    description: 'Learn the correct selection, use, and maintenance of PPE including hard hats, eye protection, and respiratory gear.',
+    title: 'Construction Site Safety Essentials',
+    description: 'A foundational course covering the critical safety practices required on construction sites to prevent injuries and maintain compliance.',
     image: 'assets/img/course_07.jpg',
     duration: '15 mins',
     modules: 4,
@@ -15,8 +15,8 @@ const SAMPLE_COURSES = [
     },
     {
     id: '2',
-    title: 'Fire Safety & Evacuation',
-    description: 'Critical protocols for fire prevention, extinguisher types, and emergency evacuation routes in industrial settings.',
+    title: 'Fundamentals of Building Construction',
+    description: 'Learn the basic principles, materials, and processes involved in modern building construction from groundworks to finishing.',
     image: 'assets/img/course_08.jpg',
     duration: '25 mins',
     modules: 6,
@@ -26,8 +26,8 @@ const SAMPLE_COURSES = [
     },
     {
     id: '3',
-    title: 'Hazardous Material Handling',
-    description: 'Advanced guide to handling, storing, and disposing of hazardous chemicals safely according to global standards.',
+    title: 'Working at Heights & Fall Prevention',
+    description: 'Focused training on safe working practices for ladders, scaffolds, and elevated platforms to reduce fall-related risks.',
     image: 'assets/img/course_09.jpg',
     duration: '45 mins',
     modules: 8,
@@ -36,8 +36,8 @@ const SAMPLE_COURSES = [
     },
     {
     id: '4',
-    title: 'Ergonomics in the Workplace',
-    description: 'Prevent repetitive strain injuries (RSI) and back pain through proper lifting techniques and workstation setup.',
+    title: 'Heavy Machinery & Equipment Operations',
+    description: 'An introductory course to the safe operation, inspection, and maintenance of common construction equipment.',
     image: 'assets/img/course_10.jpg',
     duration: '20 mins',
     modules: 3,
@@ -47,8 +47,8 @@ const SAMPLE_COURSES = [
     },
     {
     id: '5',
-    title: 'Lockout/Tagout (LOTO)',
-    description: 'Ensure dangerous machines are properly shut off and not able to be started up again prior to the completion of maintenance.',
+    title: 'Construction Site Communication & Team Coordination',
+    description: 'A course on effective communication, teamwork, and coordination practices to improve productivity and safety on-site.',
     image: 'assets/img/course_11.jpg',
     duration: '30 mins',
     modules: 5,
@@ -57,8 +57,8 @@ const SAMPLE_COURSES = [
     },
     {
     id: '6',
-    title: 'Electrical Safety Awareness',
-    description: 'Identify electrical hazards, understand arc flash risks, and learn safe working distances.',
+    title: 'Environmental Practices in Construction',
+    description: 'Covers sustainable and eco-friendly practices for minimising environmental impact during construction activities.',
     image: 'assets/img/course_12.jpg',
     duration: '40 mins',
     modules: 7,
@@ -178,7 +178,7 @@ window.renderCourses = (filter = 'All') => {
                 <span><i class="bi bi-layers me-1"></i> ${course.modules} Modules</span>
             </div>
 
-            <button onclick="openCourseModal('${course.id}')" class="btn btn-dark w-100 mt-auto">
+            <button onclick="openCourseModal('${course.id}')" class="btn btn-dark w-100 mt-auto" style="background-color: #1A202C;">
                 View Module
             </button>
             </div>

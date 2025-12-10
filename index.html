@@ -41,8 +41,8 @@
           </div> -->
 
                 <!-- Company Logo (SVG) -->
-                <img class="logo" src="assets/logo/microedge-academy-logo.svg" width="50" height="auto"
-                    alt="microedge academy logo">
+                <img style="margin-left: 20px;" class="logo" src="assets/logo/microedge-academy-logo.svg" width="50"
+                    height="auto" alt="microedge academy logo">
                 <!-- <svg version="1.1" width="44.174175" height="24.18697" id="svg7" xmlns="http://www.w3.org/2000/svg"
                     xmlns:svg="http://www.w3.org/2000/svg">
                     <path
@@ -62,7 +62,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 20px;">
                 <ul class="navbar-nav ms-auto align-items-center gap-3">
                     <li class="nav-item"><a class="nav-link active" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="search.html">Courses</a></li>
@@ -88,35 +88,45 @@
     </nav>
 
     <!-- Hero Section with Carousel -->
-    <header class="bg-industrial text-white py-5">
-        <div class="container py-2">
-            <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <div class="carousel-indicators justify-content-start ps-3 mb-0">
+    <header class="bg-industrial text-white">
+        <div class="container">
+            <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
+
+                <!-- <div class="carousel-indicators justify-content-start ps-3 mb-0">
                     <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
                         aria-current="true"></button>
                     <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
                     <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
-                </div>
+                </div> -->
 
-                <div class="carousel-inner">
-                    <!-- Slide 1: General Safety -->
+                <div class="carousel-inner" style="height: 650px;">
+
+                    <!-- Slide 1: Main Video -->
+                    <!-- <div class="carousel-item active"
+                        style="background: url('assets/img/course_00.jpg') center/cover no-repeat;"> -->
                     <div class="carousel-item active">
+                        <video class="w-100" autoplay muted loop playsinline style="object-fit: cover; height: auto;">
+                            <source src="assets/img/microedge-vid-01.MP4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
                         <div class="row align-items-center hero-slide-row">
                             <div class="col-lg-8 pb-5">
-                                <span class="badge border border-warning text-warning mb-3 px-3 py-2 rounded-pill">New:
+                                <span class="badge border border-warning text-warning px-3 py-2 rounded-pill">New:
                                     Electrical Safety 2026</span>
-                                <h1 class="display-4 fw-bold mb-3">
+                                <h1 class="caro-h1 display-4 fw-bold mb-3">
                                     Safety is not a priority. <br />
                                     <span class="text-safety-yellow">It's a value.</span>
                                 </h1>
-                                <p class="lead text-light opacity-75 mb-4">
+                                <p class="caro-p lead text-light opacity-75 mb-4">
                                     Access bite-sized training modules designed for the modern industrial workforce.
                                     Stay compliant, stay safe.
                                 </p>
-                                <div class="d-flex gap-3 flex-wrap">
-                                    <button onclick="showToast('Info', 'Browsing full catalog...', 'info')"
+                                <div class="caro-btn d-flex gap-3 flex-wrap">
+                                    <button
+                                        onclick="showToast('Info', 'Browsing full catalog...', 'info'); window.location.href='search.html';"
                                         class="btn btn-safety btn-lg fw-bold px-4">
-                                        Browse Catalog
+                                        Browse Courses
                                     </button>
                                     <button onclick="showToast('Info', 'Opening demo video...', 'info')"
                                         class="btn btn-outline-light btn-lg fw-bold px-4">
@@ -124,73 +134,111 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="col-lg-4 d-none d-lg-flex justify-content-center opacity-25">
+                            <!-- <div class="col-lg-4 d-none d-lg-flex justify-content-center opacity-25">
                                 <i class="bi bi-shield-check text-safety-yellow hero-icon-xl"></i>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
-                    <!-- Slide 2: Fire Safety -->
-                    <div class="carousel-item">
+                    <!-- Slide 2: General Safety -->
+                    <div class="carousel-item"
+                        style="background: url('assets/img/course_00.jpg') center/cover no-repeat;">
                         <div class="row align-items-center hero-slide-row">
                             <div class="col-lg-8 pb-5">
-                                <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill">Urgent Update</span>
-                                <h1 class="display-4 fw-bold mb-3">
+                                <span class="badge border border-warning text-warning px-3 py-2 rounded-pill">New:
+                                    Electrical Safety 2026</span>
+                                <h1 class="caro-h1 display-4 fw-bold mb-3">
+                                    Safety is not a priority. <br />
+                                    <span class="text-safety-yellow">It's a value.</span>
+                                </h1>
+                                <p class="caro-p lead text-light opacity-75 mb-4">
+                                    Access bite-sized training modules designed for the modern industrial workforce.
+                                    Stay compliant, stay safe.
+                                </p>
+                                <div class="caro-btn d-flex gap-3 flex-wrap">
+                                    <button
+                                        onclick="showToast('Info', 'Browsing full catalog...', 'info'); window.location.href='search.html';"
+                                        class="btn btn-safety btn-lg fw-bold px-4">
+                                        Browse Courses
+                                    </button>
+                                    <button onclick="showToast('Info', 'Opening demo video...', 'info')"
+                                        class="btn btn-outline-light btn-lg fw-bold px-4">
+                                        Watch Demo
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- <div class="col-lg-4 d-none d-lg-flex justify-content-center opacity-25">
+                                <i class="bi bi-shield-check text-safety-yellow hero-icon-xl"></i>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Fire Safety -->
+                    <div class="carousel-item"
+                        style="background: url('assets/img/course_01.jpg') center/cover no-repeat;">
+                        <div class="row align-items-center hero-slide-row">
+                            <div class="col-lg-8 pb-5">
+                                <span class="badge bg-danger px-3 py-2 rounded-pill">Urgent Update</span>
+                                <h1 class="caro-h1 display-4 fw-bold mb-3">
                                     Fire Protocols Updated <br />
                                     <span class="text-white">for Q1 2026.</span>
                                 </h1>
-                                <p class="lead text-light opacity-75 mb-4">
+                                <p class="caro-p lead text-light opacity-75 mb-4">
                                     New evacuation routes and extinguisher classifications have been released.
                                     Ensure your team is prepared for any emergency.
                                 </p>
-                                <div class="d-flex gap-3 flex-wrap">
+                                <div class="caro-btn d-flex gap-3 flex-wrap">
                                     <button onclick="showToast('Urgent', 'Starting Fire Safety Module...', 'warning')"
                                         class="btn btn-light btn-lg fw-bold px-4 text-danger">
                                         Start Module
                                     </button>
                                 </div>
                             </div>
-                            <div class="col-lg-4 d-none d-lg-flex justify-content-center opacity-25">
+                            <!-- <div class="col-lg-4 d-none d-lg-flex justify-content-center opacity-25">
                                 <i class="bi bi-fire text-danger hero-icon-xl"></i>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
-                    <!-- Slide 3: Ergonomics -->
-                    <div class="carousel-item">
+                    <!-- Slide 4: Ergonomics -->
+                    <div class="carousel-item"
+                        style="background: url('assets/img/course_02.jpg') center/cover no-repeat;">
                         <div class="row align-items-center hero-slide-row">
                             <div class="col-lg-8 pb-5">
-                                <span class="badge bg-success mb-3 px-3 py-2 rounded-pill">Health Focus</span>
-                                <h1 class="display-4 fw-bold mb-3">
+                                <span class="badge bg-success px-3 py-2 rounded-pill">Health Focus</span>
+                                <h1 class="caro-h1 display-4 fw-bold mb-3">
                                     Prevent Long-term Injury <br />
-                                    <span class="text-success-emphasis">Work Smart.</span>
+                                    <span class="text-safety-yellow">Work Smart.</span>
                                 </h1>
-                                <p class="lead text-light opacity-75 mb-4">
+                                <p class="caro-p lead text-light opacity-75 mb-4">
                                     Our new Ergonomics module helps reduce repetitive strain injuries by 40%.
                                     Protect your back and your future.
                                 </p>
-                                <div class="d-flex gap-3 flex-wrap">
+                                <div class="caro-btn d-flex gap-3 flex-wrap">
                                     <button onclick="showToast('Health', 'Opening Health Dashboard...', 'success')"
                                         class="btn btn-success btn-lg fw-bold px-4">
                                         Check Health Stats
                                     </button>
                                 </div>
                             </div>
-                            <div class="col-lg-4 d-none d-lg-flex justify-content-center opacity-25">
+                            <!-- <div class="col-lg-4 d-none d-lg-flex justify-content-center opacity-25">
                                 <i class="bi bi-heart-pulse text-success hero-icon-xl"></i>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
 
-                <!-- <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <button class="caro-prev carousel-control-prev" type="button" data-bs-target="#heroCarousel"
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+
+                <button class="caro-next carousel-control-next" type="button" data-bs-target="#heroCarousel"
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
-                </button> -->
+                </button>
             </div>
         </div>
     </header>
@@ -247,17 +295,20 @@
             </div>
 
             <!-- Team Section -->
-            <section class="row align-items-center mb-5 m-5" id="team">
+            <!-- About Us -->
+            <section id="about" class="row align-items-center mb-5 m-5" id="team">
                 <!-- <section class="py-5" id="team"> -->
                 <div class="container py-5">
                     <div class="section-header">
                         <h2 class="section-title h1 text-center fw-bold text-dark mb-1">The Team</h2>
-                        <p class="section-subtitle text-center p-4">Meet the people behind the project.</p>
+                        <p class="section-subtitle text-center text-muted p-3 mx-5 h4" style="line-height: 1.5;">Meet the people behind the project.</p>
                     </div>
-                    <div class="row g-4" >
+                    <div class="row g-4">
                         <div class="col-sm-6 col-lg-3 d-flex justify-content-center">
                             <div class="team-card h-100 text-center">
-                                <img src="https://picsum.photos/100/100?random=10" alt="Alvin" class="avatar rounded-circle shadow mb-2" style="width:100px; height:100px; object-fit:cover;">
+                                <img src="assets/img/user_m_01_sq.jpg" alt="Alvin"
+                                    class="avatar rounded-circle shadow mb-2"
+                                    style="width:150px; height:150px; object-fit:cover;">
                                 <h5 class="fw-bold mb-1 text-center pt-2">Alvin</h5>
                                 <div class="text-primary small fw-semibold text-center">Project Manager</div>
                                 <div class="fw-light small text-center">Task segregation</div>
@@ -265,7 +316,9 @@
                         </div>
                         <div class="col-sm-6 col-lg-3 d-flex justify-content-center">
                             <div class="team-card h-100 text-center">
-                                <img src="https://picsum.photos/100/100?random=11" alt="Teo" class="avatar rounded-circle shadow mb-2" style="width:100px; height:100px; object-fit:cover;">
+                                <img src="assets/img/user_m_00_sq.jpg" alt="Teo"
+                                    class="avatar rounded-circle shadow mb-2"
+                                    style="width:150px; height:150px; object-fit:cover;">
                                 <h5 class="fw-bold mb-1 text-center pt-2">Teo</h5>
                                 <div class="text-primary small fw-semibold">Lead Developer</div>
                                 <div class="fw-light small text-center">Task segregation</div>
@@ -273,7 +326,9 @@
                         </div>
                         <div class="col-sm-6 col-lg-3 d-flex justify-content-center">
                             <div class="team-card h-100 text-center">
-                                <img src="https://picsum.photos/100/100?random=12" alt="Pragathee" class="avatar rounded-circle shadow mb-2" style="width:100px; height:100px; object-fit:cover;">
+                                <img src="assets/img/user_m_03_sq.jpg" alt="Pragathee"
+                                    class="avatar rounded-circle shadow mb-2"
+                                    style="width:150px; height:150px; object-fit:cover;">
                                 <h5 class="fw-bold mb-1 text-center pt-2">Pragathee</h5>
                                 <div class="text-primary small fw-semibold">UI/UX Designer</div>
                                 <div class="fw-light small text-center">Task segregation</div>
@@ -281,7 +336,9 @@
                         </div>
                         <div class="col-sm-6 col-lg-3 d-flex justify-content-center">
                             <div class="team-card h-100 text-center">
-                                <img src="https://picsum.photos/100/100?random=13" alt="Khairi" class="avatar rounded-circle shadow mb-2" style="width:100px; height:100px; object-fit:cover;">
+                                <img src="assets/img/user_m_04_sq.png" alt="Khairi"
+                                    class="avatar rounded-circle shadow mb-2"
+                                    style="width:150px; height:150px; object-fit:cover;">
                                 <h5 class="fw-bold mb-1 text-center pt-2">Khairi</h5>
                                 <div class="text-primary small fw-semibold">Backend Engineer</div>
                                 <div class="fw-light small text-center text-lightgrey">Task segregation</div>
@@ -291,32 +348,37 @@
                 </div>
             </section>
 
-            <!-- About Us -->
             <div class="row align-items-center mb-5 m-5">
-                <div class="col-md-6">
-                    <h3 id="about" class="fw-bold">About Us</h3>
-                    <p class="text-secondary">We are committed to revolutionizing workplace safety standards through
-                        practical, accessible, and engaging learning. By blending industry expertise with cutting-edge
+                <div class="container">
+                    <h3 class="section-title h1 text-center fw-bold text-dark mb-1">About Us</h3>
+                    <p class="section-subtitle text-center text-muted p-4 mx-5 h4" style="line-height: 1.5;">We are committed to revolutionizing workplace
+                        safety
+                        standards through practical, accessible, and engaging learning. By blending industry expertise
+                        with cutting-edge
                         technology, we ensure your team returns home safely every day.</p>
 
+                    <div class="row align-items-center mb-5 m-6">
+                        <video src="./assets/img/microedge-vid-02.MP4" width="600" alt="Team" autoplay muted loop
+                            controls>
+                            <!-- <p class="text-center text-muted small mt-2">Group photo of the team</p> -->
+                    </div>
+
                     <div class="row mt-4">
-                        <div class="col-6 mb-3">
-                            <h5 class="fw-bold">Our Mission</h5>
-                            <small class="text-muted">We deliver practical, industry-focused safety training that equips
+                        <div class="col-5 mb-3 mx-auto">
+                            <h5 class="section-title h2 text-center fw-bold text-dark mb-4">Our Mission</h5>
+                            <small class="text-muted h6">We deliver practical, industry-focused safety training that equips
                                 learners to handle real on-site challenges and work safely every day.</small>
                         </div>
-                        <div class="col-6 mb-3">
-                            <h5 class="fw-bold">Our Goal</h5>
-                            <small class="text-muted">We aim to be Singapore’s leading provider of construction safety
-                                training, equipping teams with practical skills to maintain safe worksites and drive
-                                continuous safety improvement.</small>
+
+                        <div class="col-5 mb-3 mx-auto">
+                            <h5 class="section-title h2 text-center fw-bold text-dark mb-4">Our Goal</h5>
+                            <small class="text-muted h6">We aim to be Singapore’s leading provider of construction
+                                safety training, equipping teams with practical skills to maintain safe worksites and
+                                drive continuous safety improvement.</small>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <img src="./assets/img/team_00.png" width="600" class="rounded shadow" alt="Team">
-                    <p class="text-center text-muted small mt-2">Group photo of the team</p>
-                </div>
+
             </div>
 
 
@@ -414,10 +476,11 @@
             </div>
 
             <!-- Join as Trainer -->
-            <div class="bg-light p-5 rounded-3 border m-5">
+            <div id="join" class="bg-light p-5 rounded-3 border m-5"
+                style="background-image: url(assets/img/trainer_00.png);">
                 <h2 class="fw-bold mb-4">Join us as a Trainer!</h2>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                         <form id="trainerForm"
                             onsubmit="event.preventDefault(); showToast('Application Sent', 'We will review your profile shortly.', 'success'); this.reset();">
                             <div class="mb-3">
@@ -441,7 +504,8 @@
                     </div>
                     <div class="col-md-6 d-flex align-items-center justify-content-center">
                         <div class="text-center text-muted opacity-25">
-                            <i class="bi bi-envelope-paper" style="font-size: 8rem;"></i>
+                            <!-- <i class="bi bi-envelope-paper" style="font-size: 8rem;"></i> -->
+
                         </div>
                     </div>
                 </div>
@@ -563,7 +627,8 @@
                 <div class="col-lg-2 col-md-6">
                     <h6 class="text-white fw-bold text-uppercase mb-3">Platform</h6>
                     <ul class="list-unstyled text-secondary">
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset hover-warning">Browse
+                        <li class="mb-2"><a href="search.html"
+                                class="text-decoration-none text-reset hover-warning">Browse
                                 Courses</a></li>
                         <li class="mb-2"><a href="#" class="text-decoration-none text-reset hover-warning">Certification
                                 Check</a></li>
@@ -625,12 +690,12 @@
                         aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0">
-                    <img id="modalImage" src="" alt="Course Banner" class="w-100 img-cover-200">
+                    <img id="modalImage" src="" alt="Course Banner" class="w-100 img-cover-250">
                     <div class="p-4">
-                        <div class="d-flex align-items-center gap-3 mb-3">
+                        <!-- <div class="d-flex align-items-center gap-3 mb-3">
                             <span id="modalCategory" class="badge bg-warning text-dark">Category</span>
                             <span id="modalLevel" class="badge bg-secondary">Level</span>
-                        </div>
+                        </div> -->
                         <p id="modalDescription" class="lead fs-6 text-secondary">Description goes here.</p>
 
                         <hr class="my-4">
@@ -695,6 +760,7 @@
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 
     <!-- Application Logic -->
     <script src="./scripts/script.js"></script>
