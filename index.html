@@ -246,6 +246,47 @@
                 <!-- Courses will be rendered here by JS -->
             </div>
 
+            <!-- Team Section -->
+            <section class="row align-items-center mb-5 m-5" id="team">
+                <!-- <section class="py-5" id="team"> -->
+                <div class="container py-5">
+                    <div class="section-header">
+                        <h2 class="section-title h1 text-center fw-bold text-dark mb-1">The Team</h2>
+                        <p class="section-subtitle text-center">Meet the people behind the project.</p>
+                    </div>
+                    <div class="row g-4 justify-content-center" >
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="team-card h-100">
+                                <img src="https://picsum.photos/100/100?random=10" alt="Alex Johnson" class="avatar">
+                                <h5 class="fw-bold mb-1">Alex Johnson</h5>
+                                <div class="text-primary small fw-semibold">Project Manager</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="team-card h-100">
+                                <img src="https://picsum.photos/100/100?random=11" alt="Sam Rivera" class="avatar">
+                                <h5 class="fw-bold mb-1">Sam Rivera</h5>
+                                <div class="text-primary small fw-semibold">Lead Developer</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="team-card h-100">
+                                <img src="https://picsum.photos/100/100?random=12" alt="Jordan Lee" class="avatar">
+                                <h5 class="fw-bold mb-1">Jordan Lee</h5>
+                                <div class="text-primary small fw-semibold">UI/UX Designer</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="team-card h-100">
+                                <img src="https://picsum.photos/100/100?random=13" alt="Casey Smith" class="avatar">
+                                <h5 class="fw-bold mb-1">Casey Smith</h5>
+                                <div class="text-primary small fw-semibold">Backend Engineer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- About Us -->
             <div class="row align-items-center mb-5 m-5">
                 <div class="col-md-6">
@@ -253,7 +294,7 @@
                     <p class="text-secondary">We are committed to revolutionizing workplace safety standards through
                         practical, accessible, and engaging learning. By blending industry expertise with cutting-edge
                         technology, we ensure your team returns home safely every day.</p>
-                        
+
                     <div class="row mt-4">
                         <div class="col-6 mb-3">
                             <h5 class="fw-bold">Our Mission</h5>
@@ -653,6 +694,12 @@
 
     <!-- Application Logic -->
     <script src="./scripts/script.js"></script>
+
+    <!-- GoogleGenAI requires API KEY -->
+    <!-- <script type="module">
+        import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
+        const genAI = new GoogleGenerativeAI("YOUR_API_KEY");
+    </script> -->
 
 
 
