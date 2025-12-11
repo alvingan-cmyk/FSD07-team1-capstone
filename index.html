@@ -33,7 +33,7 @@
     <div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3 toast-layer"></div>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-industrial sticky-top shadow">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-industrial sticky-top shadow" >
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="#">
                 <!-- <div class="bg-warning p-1 rounded d-flex align-items-center justify-content-center logo-box-md">
@@ -102,41 +102,13 @@
                 <div class="carousel-inner" style="height: 650px;">
 
                     <!-- Slide 1: Main Video -->
-                    <!-- <div class="carousel-item active"
-                        style="background: url('assets/img/course_00.jpg') center/cover no-repeat;"> -->
                     <div class="carousel-item active">
-                        <video class="w-100" autoplay muted loop playsinline style="object-fit: cover; height: auto;">
-                            <source src="assets/img/microedge-vid-01.MP4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-
-                        <div class="row align-items-center hero-slide-row">
-                            <div class="col-lg-8 pb-5">
-                                <span class="badge border border-warning text-warning px-3 py-2 rounded-pill">New:
-                                    Electrical Safety 2026</span>
-                                <h1 class="caro-h1 display-4 fw-bold mb-3">
-                                    Safety is not a priority. <br />
-                                    <span class="text-safety-yellow">It's a value.</span>
-                                </h1>
-                                <p class="caro-p lead text-light opacity-75 mb-4">
-                                    Access bite-sized training modules designed for the modern industrial workforce.
-                                    Stay compliant, stay safe.
-                                </p>
-                                <div class="caro-btn d-flex gap-3 flex-wrap">
-                                    <button
-                                        onclick="showToast('Info', 'Browsing full catalog...', 'info'); window.location.href='search.html';"
-                                        class="btn btn-safety btn-lg fw-bold px-4">
-                                        Browse Courses
-                                    </button>
-                                    <button onclick="showToast('Info', 'Opening demo video...', 'info')"
-                                        class="btn btn-outline-light btn-lg fw-bold px-4">
-                                        Watch Demo
-                                    </button>
-                                </div>
-                            </div>
-                            <!-- <div class="col-lg-4 d-none d-lg-flex justify-content-center opacity-25">
-                                <i class="bi bi-shield-check text-safety-yellow hero-icon-xl"></i>
-                            </div> -->
+                        <div class="vid row align-items-center hero-slide-row">
+                            <video class="vid-1 w-100" autoplay muted loop playsinline
+                                style="object-fit: cover; height: auto;">
+                                <source src="assets/img/microedge-vid-01.MP4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                     </div>
 
@@ -161,10 +133,10 @@
                                         class="btn btn-safety btn-lg fw-bold px-4">
                                         Browse Courses
                                     </button>
-                                    <button onclick="showToast('Info', 'Opening demo video...', 'info')"
+                                    <!-- <button onclick="showToast('Info', 'Opening demo video...', 'info')"
                                         class="btn btn-outline-light btn-lg fw-bold px-4">
                                         Watch Demo
-                                    </button>
+                                    </button> -->
                                 </div>
                             </div>
                             <!-- <div class="col-lg-4 d-none d-lg-flex justify-content-center opacity-25">
@@ -271,7 +243,7 @@
     <main class="flex-grow-1 bg-light py-5">
         <div class="container">
 
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-end mb-4 gap-3">
+            <div class="ctn-fc d-flex flex-column flex-md-row justify-content-between align-items-end mb-4 gap-3">
                 <div>
                     <h2 class="fw-bold text-dark mb-1">Featured Courses</h2>
                     <p class="text-muted mb-0">Essential safety modules required for your role.</p>
@@ -294,105 +266,12 @@
                 <!-- Courses will be rendered here by JS -->
             </div>
 
-            <!-- Team Section -->
-            <!-- About Us -->
-            <section id="about" class="row align-items-center mb-5 m-5" id="team">
-                <!-- <section class="py-5" id="team"> -->
-                <div class="container py-5">
-                    <div class="section-header">
-                        <h2 class="section-title h1 text-center fw-bold text-dark mb-1">The Team</h2>
-                        <p class="section-subtitle text-center text-muted p-3 mx-5 h4" style="line-height: 1.5;">Meet the people behind the project.</p>
-                    </div>
-                    <div class="row g-4">
-                        <div class="col-sm-6 col-lg-3 d-flex justify-content-center">
-                            <div class="team-card h-100 text-center">
-                                <img src="assets/img/user_m_01_sq.jpg" alt="Alvin"
-                                    class="avatar rounded-circle shadow mb-2"
-                                    style="width:150px; height:150px; object-fit:cover;">
-                                <h5 class="fw-bold mb-1 text-center pt-2">Alvin</h5>
-                                <div class="text-primary small fw-semibold text-center">Project Manager</div>
-                                <div class="fw-light small text-center">Task segregation</div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-3 d-flex justify-content-center">
-                            <div class="team-card h-100 text-center">
-                                <img src="assets/img/user_m_00_sq.jpg" alt="Teo"
-                                    class="avatar rounded-circle shadow mb-2"
-                                    style="width:150px; height:150px; object-fit:cover;">
-                                <h5 class="fw-bold mb-1 text-center pt-2">Teo</h5>
-                                <div class="text-primary small fw-semibold">Lead Developer</div>
-                                <div class="fw-light small text-center">Task segregation</div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-3 d-flex justify-content-center">
-                            <div class="team-card h-100 text-center">
-                                <img src="assets/img/user_m_03_sq.jpg" alt="Pragathee"
-                                    class="avatar rounded-circle shadow mb-2"
-                                    style="width:150px; height:150px; object-fit:cover;">
-                                <h5 class="fw-bold mb-1 text-center pt-2">Pragathee</h5>
-                                <div class="text-primary small fw-semibold">UI/UX Designer</div>
-                                <div class="fw-light small text-center">Task segregation</div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-3 d-flex justify-content-center">
-                            <div class="team-card h-100 text-center">
-                                <img src="assets/img/user_m_04_sq.png" alt="Khairi"
-                                    class="avatar rounded-circle shadow mb-2"
-                                    style="width:150px; height:150px; object-fit:cover;">
-                                <h5 class="fw-bold mb-1 text-center pt-2">Khairi</h5>
-                                <div class="text-primary small fw-semibold">Backend Engineer</div>
-                                <div class="fw-light small text-center text-lightgrey">Task segregation</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="row align-items-center mb-5 m-5">
-                <div class="container">
-                    <h3 class="section-title h1 text-center fw-bold text-dark mb-1">About Us</h3>
-                    <p class="section-subtitle text-center text-muted p-4 mx-5 h4" style="line-height: 1.5;">We are committed to revolutionizing workplace
-                        safety
-                        standards through practical, accessible, and engaging learning. By blending industry expertise
-                        with cutting-edge
-                        technology, we ensure your team returns home safely every day.</p>
-
-                    <div class="row align-items-center mb-5 m-6">
-                        <video src="./assets/img/microedge-vid-02.MP4" width="600" alt="Team" autoplay muted loop
-                            controls>
-                            <!-- <p class="text-center text-muted small mt-2">Group photo of the team</p> -->
-                    </div>
-
-                    <div class="row mt-4">
-                        <div class="col-5 mb-3 mx-auto">
-                            <h5 class="section-title h2 text-center fw-bold text-dark mb-4">Our Mission</h5>
-                            <small class="text-muted h6">We deliver practical, industry-focused safety training that equips
-                                learners to handle real on-site challenges and work safely every day.</small>
-                        </div>
-
-                        <div class="col-5 mb-3 mx-auto">
-                            <h5 class="section-title h2 text-center fw-bold text-dark mb-4">Our Goal</h5>
-                            <small class="text-muted h6">We aim to be Singapore’s leading provider of construction
-                                safety training, equipping teams with practical skills to maintain safe worksites and
-                                drive continuous safety improvement.</small>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-
             <!-- Achievements / Badges Section -->
             <div class="my-5 py-4">
-                <div class="row align-items-center mb-4">
-                    <div class="col">
-                        <h3 class="fw-bold">Earn Achievements</h3>
-                        <p class="text-muted">Complete modules to unlock verified skills badges.</p>
-                    </div>
-                    <div class="col-auto">
-                        <a href="#" class="btn btn-outline-dark btn-sm">View All Badges</a>
-                    </div>
+                <div class="section-header">
+                    <h2 class="section-title h1 text-center fw-bold text-dark mb-1">Earn Achievements</h2>
+                    <p class="section-subtitle text-center text-muted p-3 mx-5" style="line-height: 1.5;">Complete
+                        modules to unlock verified skills badges.</p>
                 </div>
 
                 <div class="row g-4">
@@ -454,6 +333,99 @@
                 </div>
             </div>
 
+            <!-- Team Section -->
+            <!-- About Us -->
+            <section id="about" class="row align-items-center mb-5 m-5" id="team">
+                <!-- <section class="py-5" id="team"> -->
+                <div class="container py-5">
+                    <div class="section-header">
+                        <h2 class="section-title h1 text-center fw-bold text-dark mb-1">The Team</h2>
+                        <p class="section-subtitle text-center text-muted p-3 mx-5" style="line-height: 1.5;">Meet the
+                            people behind the project.</p>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-sm-6 col-lg-3 d-flex justify-content-center">
+                            <div class="team-card h-100 text-center">
+                                <img src="assets/img/user_m_01_sq.jpg" alt="Alvin"
+                                    class="avatar rounded-circle shadow mb-2"
+                                    style="width:150px; height:150px; object-fit:cover;">
+                                <h5 class="fw-bold mb-1 text-center pt-2">Alvin</h5>
+                                <div class="text-primary small fw-semibold text-center">Project Manager</div>
+                                <div class="fw-light small text-center">Task segregation</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 d-flex justify-content-center">
+                            <div class="team-card h-100 text-center">
+                                <img src="assets/img/user_m_00_sq.jpg" alt="Teo"
+                                    class="avatar rounded-circle shadow mb-2"
+                                    style="width:150px; height:150px; object-fit:cover;">
+                                <h5 class="fw-bold mb-1 text-center pt-2">Teo</h5>
+                                <div class="text-primary small fw-semibold">Lead Developer</div>
+                                <div class="fw-light small text-center">Task segregation</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 d-flex justify-content-center">
+                            <div class="team-card h-100 text-center">
+                                <img src="assets/img/user_m_03_sq.jpg" alt="Pragathee"
+                                    class="avatar rounded-circle shadow mb-2"
+                                    style="width:150px; height:150px; object-fit:cover;">
+                                <h5 class="fw-bold mb-1 text-center pt-2">Pragathee</h5>
+                                <div class="text-primary small fw-semibold">UI/UX Designer</div>
+                                <div class="fw-light small text-center">Task segregation</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 d-flex justify-content-center">
+                            <div class="team-card h-100 text-center">
+                                <img src="assets/img/user_m_04_sq.png" alt="Khairi"
+                                    class="avatar rounded-circle shadow mb-2"
+                                    style="width:150px; height:150px; object-fit:cover;">
+                                <h5 class="fw-bold mb-1 text-center pt-2">Khairi</h5>
+                                <div class="text-primary small fw-semibold">Backend Engineer</div>
+                                <div class="fw-light small text-center text-lightgrey">Task segregation</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="row align-items-center mb-5 m-5">
+                <div class="container">
+                    <h3 class="section-title h1 text-center fw-bold text-dark mb-1">About Us</h3>
+                    <p class="section-subtitle text-center text-muted p-4 mx-5" style="line-height: 1.5;">We are
+                        committed to revolutionizing workplace
+                        safety
+                        standards through practical, accessible, and engaging learning. By blending industry expertise
+                        with cutting-edge
+                        technology, we ensure your team returns home safely every day.</p>
+
+                    <div class="row align-items-center mb-5 m-6">
+                        <video src="./assets/img/microedge-vid-02.MP4" width="600" alt="Team" autoplay muted loop
+                            playsinline>
+                            <!-- <p class="text-center text-muted small mt-2">Group photo of the team</p> -->
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-5 mb-3 mx-auto">
+                            <h5 class="section-title h2 text-center fw-bold text-dark mb-4">Our Mission</h5>
+                            <small class="text-muted">We deliver practical, industry-focused safety training that equips
+                                learners to handle real on-site challenges and work safely every day.</small>
+                        </div>
+
+                        <div class="col-5 mb-3 mx-auto">
+                            <h5 class="section-title h2 text-center fw-bold text-dark mb-4">Our Goal</h5>
+                            <small class="text-muted">We aim to be Singapore’s leading provider of construction
+                                safety training, equipping teams with practical skills to maintain safe worksites and
+                                drive continuous safety improvement.</small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
             <!-- CTA Section -->
             <div class="p-5 bg-industrial rounded-3 position-relative overflow-hidden shadow">
                 <div class="position-absolute top-0 end-0 bg-warning rounded-circle opacity-10 cta-decoration-circle">
@@ -476,8 +448,8 @@
             </div>
 
             <!-- Join as Trainer -->
-            <div id="join" class="bg-light p-5 rounded-3 border m-5"
-                style="background-image: url(assets/img/trainer_00.png);">
+            <div id="join" class="p-5 bg-industrial rounded-3 position-relative overflow-hidden shadow mt-5"
+                style="background-image: url(assets/img/trainer_00.png); justify-content: flex-start;">
                 <h2 class="fw-bold mb-4">Join us as a Trainer!</h2>
                 <div class="row">
                     <div class="col-md-5">

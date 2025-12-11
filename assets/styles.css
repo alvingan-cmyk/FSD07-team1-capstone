@@ -11,6 +11,16 @@ body {
 }
 
 /* ****************** START: For Index.html ****************** */
+
+body, html {
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 0;
+    margin: 0 auto;
+}
+
 /* Logo Name */
 .logoname {
     gap: 0;
@@ -29,45 +39,54 @@ body {
 
 /* Hero Section: Carousel */
 .carousel-item {
-  position: relative;
-  min-height: 650px;
+    position: relative;
+    min-height: 650px;
 }
 
 .carousel-item .overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0));
-  z-index: 1; /* above image, below content */
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+    z-index: 1;
+    /* above image, below content */
 }
 
 .carousel-item .row {
-  position: relative;
-  z-index: 2; /* above overlay */
+    position: relative;
+    z-index: 2;
+    /* above overlay */
 }
 
 /* Ensure carousel controls are above everything */
 .carousel-control-prev,
 .carousel-control-next {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 5%;
-  z-index: 5; /* above overlay and content */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 5%;
+    z-index: 5;
+    /* above overlay and content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Make arrow thicker and change color */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-image: none; /* remove default SVG */
+    background-image: none;
+    /* remove default SVG */
     display: inline-block;
-    width: 30px;    /* arrow width */
-    height: 30px;   /* arrow height */
-    border: solid white;  /* arrow color */
-    border-width: 0 5px 5px 0; /* thickness of the arrow lines */
-    padding: 10px;   /* space around */
+    width: 30px;
+    /* arrow width */
+    height: 30px;
+    /* arrow height */
+    border: solid white;
+    /* arrow color */
+    border-width: 0 5px 5px 0;
+    /* thickness of the arrow lines */
+    padding: 10px;
+    /* space around */
 }
 
 /* Left arrow rotation */
@@ -104,15 +123,24 @@ body {
     margin: 0 0 0 3rem;
 }
 
-.caro-p, .caro-h1, .caro-btn {
-  position: relative;
-  z-index: 2; /* make sure text is clickable and visible */
+.caro-p,
+.caro-h1,
+.caro-btn {
+    position: relative;
+    z-index: 2;
+    /* make sure text is clickable and visible */
 }
 
 
 #modalImage .img-cover-200 {
-    object-fit: contain;    /* fit entire image without cropping */
+    object-fit: contain;
+    /* fit entire image without cropping */
 }
+
+ .vid {
+        /* scale: .9; */
+    }
+
 /* ****************** END: For Index.html ****************** */
 
 /* Theme Overrides */
@@ -250,4 +278,73 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 1050;
+}
+
+/* TODO */
+
+/** Start of Mobile Section **/
+/** *********************** **/
+
+/* if the width of screen is 640px and below (aka 40rem x 16px) */
+@media (max-width: 390px),
+(min-width: 412px) and (max-width: 768px) {
+
+    /* @media Start of NAV BAR */
+    .logo {
+        width: 50px;
+    }
+
+    .collapse {
+        z-index: 10;
+    }
+
+    .logoname-bold,
+    .logoname-light {
+        display: none;
+    }
+
+    /* Resize the hamburger icon */
+    .navbar-toggler .navbar-toggler-icon {
+        width: 20px;
+        height: 20px;
+        background-size: 20px 20px;
+       
+    }
+
+    .badge {
+        margin: 2rem 0 3rem 2rem;
+    }
+
+    .caro-h1 {
+        margin: 12rem 0 0 2rem;
+    }
+
+    .caro-p {
+        padding: 1rem 0 1rem 1rem;
+        margin: 0 2rem 0 2rem;
+        border-radius: 0.7rem;
+        font-size: 1rem;
+    }
+
+    .caro-btn {
+        margin: 0 0 0 2rem;
+    }
+
+    .vid {
+        padding-top: 27%;
+        scale: 3;
+    }
+
+    #course-grid {
+        padding:0 2rem
+    }
+
+    .ctn-fc {
+        justify-content: center;
+
+    }
+    
+
+
+
 }
