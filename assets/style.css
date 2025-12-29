@@ -10,21 +10,6 @@ body {
     background-color: #f8f9fa;
 }
 
-/* Logo Name */
-.logoname {
-    gap: 0;
-}
-.logoname-bold {
-    font-weight: bold;
-}
-
-.logoname-light {
-    font-weight: lighter;
-    margin: 3px 0 0  0;
-    font-size: 1rem;
-    text-transform: uppercase;
-}
-
 /* Theme Overrides */
 .bg-industrial {
     background-color: var(--industrial-dark) !important;
@@ -96,68 +81,26 @@ body {
     color: var(--safety-yellow) !important;
 }
 
-/* --- Extracted Inline Styles --- */
-
-.toast-layer {
-    z-index: 1100;
+/* New Styles */
+.course-card-hover {
+    cursor: pointer;
 }
 
-.logo-box-md {
-    width: 32px;
-    height: 32px;
+.border-dashed {
+    border: 2px dashed #dee2e6 !important;
 }
 
-.logo-box-sm {
-    width: 24px;
-    height: 24px;
+.grayscale {
+    filter: grayscale(100%);
 }
 
-.nav-badge-pos {
-    font-size: 0.6em;
-    transform: translate(-50%, 5px) !important;
+.instructor-avatar {    /* replace with the real selector */
+  border-radius: 50%;
+  width: 100px;      /* ensure width and height are equal */
+  height: 100px;
+  object-fit: cover; /* keeps the face centered without distortion */
 }
 
-.hero-slide-row {
-    min-height: 300px;
-}
-
-.hero-icon-xl {
-    font-size: 12rem;
-}
-
-.achievement-circle {
-    width: 100px;
-    height: 100px;
-}
-
-.cta-decoration-circle {
-    width: 300px;
-    height: 300px;
-    transform: translate(30%, -30%);
-}
-
-.footer-icon-sm {
-    font-size: 14px;
-}
-
-.img-cover-200 {
-    height: 200px;
-    object-fit: cover;
-}
-
-.chat-body-scroll {
-    height: 380px;
-}
-
-.chat-bubble-width {
-    max-width: 85%;
-}
-
-.chat-fab-style {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1050;
+body, html {
+    overflow-x: hidden;
 }
