@@ -213,6 +213,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const urlParams = new URLSearchParams(window.location.search);
         const query = urlParams.get('q');
         renderSearchResults(query);
+
+        // TODO SEARCH FILTER ADD THIS PART HERE:
+        const applyBtn = document.getElementById('apply-filters-btn');
+        if (applyBtn) {
+            applyBtn.addEventListener('click', () => {
+                window.applySidebarFilters();
+            });
+        }
     }
 
     // 4. Course Detail Page Init
@@ -311,6 +319,59 @@ function renderSearchResults(query) {
         container.appendChild(el);
     });
 }
+
+//TODO SEARCH FILTER
+// --- SEARCH FILTER LOGIC ---
+window.applySidebarFilters = () => {
+    // 1. Get all checked values into arrays
+    const selectedCats = Array.from(document.querySelectorAll('.category-filter:checked'))
+                              .map(cb => cb.value);
+    const selectedLvls = Array.from(document.querySelectorAll('.level-filter:checked'))
+                              .map(cb => cb.value);
+
+    // 2. Filter the global data
+    const results = SAMPLE_COURSES.filter(course => {
+        // If no category is selected, show all; otherwise, match selected ones
+        const categoryMatch = selectedCats.length === 0 || selectedCats.includes(course.category);
+        
+        // If no level is selected, show all; otherwise, match selected ones
+        const levelMatch = selectedLvls.length === 0 || selectedLvls.includes(course.level);
+
+        return categoryMatch && levelMatch;
+    });
+
+    // 3. Render the filtered results
+    const container = document.getElementById('search-results-container');
+    if (!container) return;
+    container.innerHTML = '';
+
+    if (results.length === 0) {
+        container.innerHTML = '<div class="alert alert-info w-100">No courses match those filters.</div>';
+        return;
+    }
+
+    results.forEach(course => {
+        const el = document.createElement('div');
+        el.className = 'col-12';
+        el.innerHTML = `
+            <div class="card mb-3 shadow-sm hover-shadow">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="card-title text-primary">
+                            <a href="course.html?id=${course.id}" class="text-decoration-none">${course.title}</a>
+                        </h5>
+                        <small class="text-muted">${course.level}</small>
+                    </div>
+                    <p class="card-text text-secondary">${course.description}</p>
+                    <div class="d-flex gap-2">
+                        <span class="badge bg-light text-dark border">${course.category}</span>
+                        <span class="badge bg-light text-dark border">${course.duration}</span>
+                    </div>
+                </div>
+            </div>`;
+        container.appendChild(el);
+    });
+};
 
 // --- COURSE DETAIL LOGIC ---
 function renderCourseDetail(id) {
