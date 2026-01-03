@@ -280,6 +280,13 @@ body, html {
     z-index: 1050;
 }
 
+.instructor-avatar {    /* replace with the real selector */
+  border-radius: 50%;
+  width: 100px;      /* ensure width and height are equal */
+  height: 100px;
+  object-fit: cover; /* keeps the face centered without distortion */
+}
+
 /* TODO */
 
 /** Start of Mobile Section **/

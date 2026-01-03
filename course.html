@@ -7,7 +7,7 @@
   <title>MicroEdge Academy - Course Detail</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="./assets/course.css">
+  <link rel="stylesheet" href="./assets/styles.css">
 </head>
 
 <body class="bg-light">
@@ -53,16 +53,16 @@
   <div id="course-detail-container">
     <!-- Hero -->
     <header class="course-hero">
-      <div class="container">
+      <div class="container px-4">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
+          <ol class="breadcrumb pt-2">
             <li class="breadcrumb-item"><a href="search.html"
-                class="text-white opacity-75 text-decoration-none">Courses</a></li>
-            <li class="breadcrumb-item active text-white" aria-current="page">Detail</li>
+                class="text-dark opacity-75 text-decoration-none">Courses</a></li>
+            <li class="breadcrumb-item active text-dark" aria-current="page">Detail</li>
           </ol>
         </nav>
-        <h1 class="display-5 fw-bold mb-3 course-title-target">Course Title Loading...</h1>
-        <p class="lead opacity-75 course-desc-target">Loading description...</p>
+        <h1 class="display-5 fw-bold mb-3 course-title-target">Personal Protective Equipment (PPE)</h1>
+        <p class="lead opacity-75 course-desc-target">Learn the correct selection, use, and maintenance of PPE including hard hats, eye protection, and respiratory gear.</p>
 
         <div class="d-flex gap-4 mt-4 text-white-50">
           <div class="d-flex align-items-center gap-2">
@@ -80,8 +80,8 @@
         <!-- Main Content -->
         <div class="col-lg-8">
           <div class="bg-white p-4 rounded shadow-sm mb-4">
-            <h4 class="fw-bold mb-3">Course Description</h4>
-            <p class="text-secondary course-desc-target">...</p>
+            <h4 class="fw-bold mb-3">About this course</h4>
+            <p class="text-secondary course-desc-target">This course provides practical guidance on choosing and using personal protective equipment to reduce workplace hazards. You will learn how to properly inspect, fit, and maintain items such as hard hats, eye and face protection, and respiratory devices. By the end, you will understand how to apply PPE best practices to keep yourself and others safe on the job.</p>
 
             <h5 class="fw-bold mt-4 mb-3">Key Topics</h5>
             <ul class="list-group list-group-flush">
@@ -97,7 +97,7 @@
           </div>
 
           <!-- Accordion for Modules -->
-          <h4 class="fw-bold mb-3">Syllabus</h4>
+          <h4 class="fw-bold mb-3 px-4">Syllabus</h4>
           <div class="accordion mb-4" id="syllabusAccordion">
             <div class="accordion-item">
               <h2 class="accordion-header">
@@ -130,8 +130,8 @@
           <!-- Instructor Card -->
           <div class="card border-0 shadow-sm mb-4">
             <div class="card-body text-center">
-              <img src="https://picsum.photos/100" class="instructor-avatar mb-3" alt="Instructor">
-              <h5 class="fw-bold course-instructor-target">Instructor Name</h5>
+              <img src="./assets/img/c05-t03.jpg" class="instructor-avatar mb-3" alt="Instructor">
+              <h5 class="fw-bold course-instructor-target">Sarah Jenkins</h5>
               <p class="text-muted small">NEBOSH International Diploma in Occupational Health & Safety. 12+ years
                 experience.</p>
               <button class="btn btn-outline-dark btn-sm w-100">View Profile</button>
@@ -140,7 +140,7 @@
 
           <!-- Action Card -->
           <div class="card border-0 shadow-sm sticky-top" style="top: 100px;">
-            <img src="" class="card-img-top course-img-target" alt="Course" style="height: 150px; object-fit: cover;">
+            <img src="./assets/img/c01-t01.jpg" class="card-img-top course-img-target" alt="Course" style="height: 150px; object-fit: cover;">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <span class="fs-4 fw-bold">Free</span>
@@ -156,10 +156,104 @@
     </div>
   </div>
 
-  <footer class="bg-industrial text-light pt-4 pb-2 mt-5">
-    <div class="container text-center">
-      <p class="small text-muted">&copy; 2026 MicroEdge Academy</p>
-    </div>
+  <!-- Footer -->
+  <footer class="bg-industrial text-light px-4 pt-5 pb-3 border-top border-secondary">
+      <div class="container">
+          <div class="row g-5 mb-5">
+              <!-- Brand -->
+              <div class="col-lg-4 col-md-6">
+                  <div class="d-flex align-items-center gap-2 mb-3">
+                      <!-- <div
+                          class="bg-warning p-1 rounded d-flex justify-content-center align-items-center logo-box-sm">
+                          <i class="bi bi-shield-check text-dark footer-icon-sm"></i>
+                      </div> -->
+
+                      <!-- Company Logo (SVG) -->
+                      <svg version="1.1" width="44.174175" height="24.18697" id="svg7"
+                          xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                          <path
+                              d="m 33.986439,0.88156253 c 1.65045,1.27777197 2.65811,3.31491697 3.71484,5.07812497 0.22276,0.369317 0.22276,0.369317 0.45001,0.746094 0.3161,0.52443 0.63175,1.049136 0.94696,1.574097 0.42125,0.700094 0.84445,1.398944 1.26898,2.0970505 0.4248,0.69889 0.84804,1.398715 1.27155,2.098384 0.15886,0.260854 0.31772,0.521708 0.48139,0.790467 1.31783,2.186286 2.36023,3.953889 1.97174,6.584533 -0.56686,1.609861 -1.58264,2.814604 -3,3.75 -1.52193,0.727877 -3.08872,0.712956 -4.67188,0.203125 -2.0368,-1.114477 -2.926761,-2.556847 -4.075556,-4.523437 -0.38166,-0.649319 -0.77827,-1.289144 -1.17444,-1.929688 -0.162425,-0.263935 -0.324845,-0.527871 -0.49219,-0.799804 -0.75103,-1.218747 -1.50442,-2.436034 -2.25781,-3.653321 -0.1367,-0.220913 -0.273405,-0.441826 -0.414245,-0.669433 -0.198586,-0.320735 -0.198586,-0.320735 -0.401186,-0.647949 -0.12806,-0.207419 -0.25612,-0.414837 -0.38806,-0.62854 -0.244305,-0.391889 -0.491655,-0.7819 -0.742432,-1.1696785 -0.11227,-0.174225 -0.224538,-0.34845 -0.34021,-0.527954 -0.09888,-0.151042 -0.19775,-0.302084 -0.299623,-0.457703 -0.833632,-1.532702 -0.704247,-3.514478 -0.49237,-5.195618 0.69402,-1.460251 1.837595,-2.496716 3.250001,-3.24999997 1.938315,-0.585909 3.59502,-0.338311 5.394531,0.53125 z"
+                              fill="#f6b733" id="path2" style="stroke-width:0.25" />
+                          <path
+                              d="m 16.920034,0.61593753 c 2.185935,1.25106997 3.12317,3.22739697 4.300781,5.37207097 0.629736,1.139821 1.299008,2.252804 1.980469,3.362304 0.114284,0.18627 0.228567,0.372539 0.346314,0.564453 0.580191,0.9420215 1.166003,1.8802805 1.757202,2.8154305 0.170912,0.270945 0.170912,0.270945 0.345275,0.547363 0.215255,0.340487 0.431462,0.680373 0.648805,1.019532 1.189515,1.878729 1.564335,3.331899 1.29303,5.553222 -0.549113,1.613018 -1.58713,2.81757 -3.000001,3.75 -1.521925,0.727877 -3.088718,0.712956 -4.671875,0.203125 -2.105522,-1.152078 -3.026185,-2.686334 -4.234375,-4.71875 -0.17619,-0.29237 -0.352605,-0.584605 -0.529236,-0.876709 C 14.80106,17.619365 14.447266,17.029851 14.094717,16.439547 13.642539,15.68482 13.185579,14.933369 12.725698,14.183321 12.000068,12.997166 11.291426,11.80202 10.591909,10.600313 10.494142,10.435515 10.396374,10.270716 10.295644,10.100924 9.1099685,8.0791615 8.3491145,6.2300705 8.8419085,3.8503125 c 0.684304,-1.615053 1.7717465,-2.607469 3.2500005,-3.49999997 1.629842,-0.54328 3.269627,-0.454589 4.828125,0.265625 z"
+                              fill="#f6b733" id="path3" style="stroke-width:0.25" />
+                          <path
+                              d="m 7.8165175,13.069063 c 1.667767,0.761263 2.5413515,1.73163 3.2978525,3.372071 0.500171,1.448994 0.556295,2.982275 -0.120117,4.375 -1.0916065,1.601812 -2.2044185,2.851307 -4.1523445,3.284179 -1.673715,0.192529 -2.93492,0.130393 -4.321289,-0.878906 -1.33382,-1.15456 -2.28827497,-2.477054 -2.50878897,-4.273437 -0.06539,-1.578111 0.119554,-2.817891 1.08007797,-4.097657 1.907273,-1.986926 4.008545,-2.601194 6.724609,-1.78125 z"
+                              fill="#f3b533" id="path4" style="stroke-width:0.25" />
+                      </svg>
+
+                      <span class="fw-bold fs-5">MicroEdge Academy</span>
+                  </div>
+                  <p class="text-secondary mb-4">
+                      Empowering workforces with accessible, high-quality safety education since 2020.
+                  </p>
+                  <div class="d-flex gap-3">
+                      <a href="#" class="text-secondary text-decoration-none fs-5 hover-warning transition-colors"><i
+                              class="bi bi-twitter-x"></i></a>
+                      <a href="#" class="text-secondary text-decoration-none fs-5 hover-warning transition-colors"><i
+                              class="bi bi-facebook"></i></a>
+                      <a href="#" class="text-secondary text-decoration-none fs-5 hover-warning transition-colors"><i
+                              class="bi bi-linkedin"></i></a>
+                      <a href="#" class="text-secondary text-decoration-none fs-5 hover-warning transition-colors"><i
+                              class="bi bi-instagram"></i></a>
+                  </div>
+              </div>
+
+              <!-- Platform Links -->
+              <div class="col-lg-2 col-md-6">
+                  <h6 class="text-white fw-bold text-uppercase mb-3">Platform</h6>
+                  <ul class="list-unstyled text-secondary">
+                      <li class="mb-2"><a href="search.html"
+                              class="text-decoration-none text-reset hover-warning">Browse
+                              Courses</a></li>
+                      <li class="mb-2"><a href="#" class="text-decoration-none text-reset hover-warning">Certification
+                              Check</a></li>
+                      <li class="mb-2"><a href="#" class="text-decoration-none text-reset hover-warning">Team
+                              Dashboard</a></li>
+                      <li class="mb-2"><a href="#" class="text-decoration-none text-reset hover-warning">Mobile
+                              App</a></li>
+                  </ul>
+              </div>
+
+              <!-- Support Links -->
+              <div class="col-lg-2 col-md-6">
+                  <h6 class="text-white fw-bold text-uppercase mb-3">Support</h6>
+                  <ul class="list-unstyled text-secondary">
+                      <li class="mb-2"><a href="#" class="text-decoration-none text-reset hover-warning">Help
+                              Center</a></li>
+                      <li class="mb-2"><a href="#" class="text-decoration-none text-reset hover-warning">Safety
+                              Standards</a></li>
+                      <li class="mb-2"><a href="#" class="text-decoration-none text-reset hover-warning">Privacy
+                              Policy</a></li>
+                      <li class="mb-2"><a href="#" class="text-decoration-none text-reset hover-warning">Terms of
+                              Service</a></li>
+                  </ul>
+              </div>
+
+              <!-- Newsletter -->
+              <div class="col-lg-4 col-md-6">
+                  <h6 class="text-white fw-bold text-uppercase mb-3">Stay Updated</h6>
+                  <p class="text-secondary mb-3">Get the latest safety protocols and course updates.</p>
+                  <form
+                      onsubmit="event.preventDefault(); showToast('Success', 'Subscribed successfully!', 'success');">
+                      <div class="input-group">
+                          <input type="email" class="form-control bg-dark text-white border-secondary"
+                              placeholder="Enter your email" aria-label="Enter your email" />
+                          <button class="btn btn-safety" type="submit">Subscribe</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+
+          <div
+              class="border-top border-secondary pt-3 d-flex flex-column flex-md-row justify-content-between align-items-center text-secondary small">
+              <p class="mb-2 mb-md-0">&copy; 2026 MicroEdge Academy. All rights reserved.</p>
+              <div class="d-flex gap-3">
+                  <a href="#" class="text-reset text-decoration-none">Sitemap</a>
+                  <a href="#" class="text-reset text-decoration-none">Cookies</a>
+              </div>
+          </div>
+      </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -170,7 +264,7 @@
       }
     }
   </script>
-  <script type="module" src="course.js"></script>
+  <script type="module" src="./scripts/script.js"></script>
 </body>
 
 </html>
