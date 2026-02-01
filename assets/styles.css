@@ -8,11 +8,13 @@
 body {
     font-family: var(--bs-font-sans-serif);
     background-color: #f8f9fa;
+    padding-top: 3.5rem;
 }
 
 /* ****************** START: For Index.html ****************** */
 
-body, html {
+body,
+html {
     overflow-x: hidden;
 }
 
@@ -35,6 +37,14 @@ body, html {
     margin: 3px 0 0 0;
     font-size: 1rem;
     text-transform: uppercase;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 /* Hero Section: Carousel */
@@ -276,11 +286,14 @@ body, html {
     z-index: 1050;
 }
 
-.instructor-avatar {    /* replace with the real selector */
-  border-radius: 50%;
-  width: 100px;      /* ensure width and height are equal */
-  height: 100px;
-  object-fit: cover; /* keeps the face centered without distortion */
+.instructor-avatar {
+    /* replace with the real selector */
+    border-radius: 50%;
+    width: 100px;
+    /* ensure width and height are equal */
+    height: 100px;
+    object-fit: cover;
+    /* keeps the face centered without distortion */
 }
 
 /* TODO */
@@ -311,8 +324,11 @@ body, html {
         width: 20px;
         height: 20px;
         background-size: 20px 20px;
-       
     }
+
+
+
+
 
     .badge {
         margin: 2rem 0 3rem 2rem;
@@ -339,14 +355,14 @@ body, html {
     }
 
     #course-grid {
-        padding:0 2rem
+        padding: 0 2rem
     }
 
     .ctn-fc {
         justify-content: center;
 
     }
-    
+
 
 
 
