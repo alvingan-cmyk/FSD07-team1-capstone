@@ -51,20 +51,22 @@
                     <li class="nav-item"><a class="nav-link" href="#featured-courses">Courses</a></li>
                     <li class="nav-item"><a class="nav-link" href="search.html">Search</a></li>
                     <li class="nav-item"><a class="nav-link active" href="auth.html">Sign Up</a></li>
-                    <!-- <li class="nav-item position-relative">
-                        <a class="nav-link" href="#">
-                            Certifications
-                            <span
-                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light nav-badge-pos">
-                                2 Expiring
-                                <span class="visually-hidden">expiring certifications</span>
-                            </span>
-                        </a>
-                    </li> -->
                     <li class="nav-item">
                         <a href="auth.html">
                             <button class="btn btn-safety btn-sm fw-bold px-3"
                                 onclick="showToast('Profile', 'Opening profile settings...', 'info')">Login</button></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown">
+                        <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center text-dark fw-bold" style="width: 30px; height: 30px;"><span id="navInitials"></span></div>
+                        <span id="navFirstName"></span><span id="navLastName"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Billing</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" id="btnLogout" href="#">Logout</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -727,7 +729,9 @@
         const genAI = new GoogleGenerativeAI("YOUR_API_KEY");
     </script> -->
 
-
+   <!-- Site-app scripts -->
+    <script src="scripts/const.js"></script>
+    <script src="scripts/auth.js"></script>
 
 </body>
 
