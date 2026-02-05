@@ -70,12 +70,24 @@ async function login(formData = {}){
             const user = decodeUser(token);                                                 // decode the token for the role 
             window.localStorage.setItem(_USERTOKEN, token);                                 // Store the string in localStorage with the key 'usertoken'
             
-            const trainerStatus = user.roles.some(role => role.authority === 'TRAINER');        // !! Find "ADMIN" authority from token's roles
+            const trainerStatus = user.roles.some(role => role.authority === 'TRAINER');    // !! Find "ADMIN" authority from token's roles
             
-            if(trainerStatus)                                                                 // !! This example only look for "ADMIN" authority
-                window.location = _TRAINER_PROFILE_URL;                                               // Redirect the user to adminpage
-            else                                                                            // !! Other authority will be deemed as user
-                window.location = _TRAINEE_PROFILE_URL;                                               // Redirect the user to homepage
+            if(trainerStatus)                                                               // !! This example only look for "ADMIN" authority
+                window.location = _TRAINER_PROFILE_URL;                                     // Redirect the user to adminpage
+            else{                                                                           // !! Other authority will be deemed as user
+                
+                // if the is a page name to be routed to
+                const urlParams = new URLSearchParams(window.location.search);
+                const pageRoute = urlParams.get("page");
+                const id = urlParams.get("id");
+                
+                // if there is a page. route, route to the desired page wit the id
+                if(pageRoute)
+                    return window.location = `${pageRoute}?id=${id}`;
+                
+                // otherwise, bring the user to the trainee-board
+                window.location = _TRAINEE_PROFILE_URL;                                     // Redirect the user to homepage
+            }
         }
         
         return;                                                                             // Else return false

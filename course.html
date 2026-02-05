@@ -103,22 +103,21 @@
             <div class="card-body text-center">
               <img src="./assets/img/c05-t03.jpg" class="instructor-avatar mb-3" alt="Instructor">
               <h5 class="fw-bold course-instructor-target">Instructor Name</h5>
-              <p class="text-muted small instructor-credentials">Loading credentials...</p>
+              <!-- <p class="text-muted small instructor-credentials">Loading credentials...</p> -->
               <button class="btn btn-outline-dark btn-sm w-100">View Profile</button>
             </div>
           </div>
 
           <!-- Action Card -->
           <div class="card border-0 shadow-sm sticky-top z-0" style="top: 100px;">
-            <img src="./assets/img/c01-t01.jpg" class="card-img-top course-img-target" alt="Course"
+            <img src="" class="card-img-top course-img-target" alt="Course"
               style="height: auto; object-fit: cover;">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <span class="fs-4 fw-bold">Free</span>
                 <span class="badge bg-success">Certification Included</span>
               </div>
-              <button class="btn btn-safety w-100 fw-bold btn-lg mb-2"
-                onclick="showToast('Success', 'Enrolled in course successfully!', 'success')">Enroll Now</button>
+              <button id="btnEnrol" class="btn btn-safety w-100 fw-bold btn-lg mb-2">Enroll Now</button>
               <small class="text-muted text-center d-block">Lifetime access • Mobile friendly</small>
             </div>
           </div>
@@ -231,6 +230,64 @@
   <script src="scripts/const.js"></script>
   <script src="scripts/auth.js"></script>
   <script type="module" src="./scripts/search.js"></script>
+
+  <!-- Internal Script to process enrolment -->
+  <script>
+    document.getElementById("btnEnrol").addEventListener("click", async() => {
+
+      const token = isAuthenticated();
+      
+      // 1. Get the ID from the URL as well (better for tracking)
+      const urlParams = new URLSearchParams(window.location.search);
+      const courseId = urlParams.get("id") || "no-id";
+
+      // 2. If user is not logged in (no token)
+      if (!token)
+        return window.location = `${_LOGIN_URL}?page=${encodeURIComponent(_COURSE_URL)}&id=${courseId}`;
+
+      // 3. Grab the title, but prioritize the one that isn't just "Loading..."
+      const titleEl = document.querySelector(".course-title-target");
+      const courseTitle = titleEl ? titleEl.textContent : "Unknown Course";
+
+      if (courseTitle === "Loading...") {
+        showToast("Wait a moment", "Course details are still loading.", "warning");
+        return;
+      }
+
+      try {
+        
+        const enrollmentStatus = await fetch(`${_ENDPOINT_RESTRICTED_CREATE_ENROLLMENT}/${courseId}`, {
+          method: "POST",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+
+        console.log(await enrollmentStatus);
+        
+        if(enrollmentStatus.ok){
+          showToast('Success', 'Enrolled in course successfully!', 'success');
+
+          // delay 2 seconds so that the toast can be seen.
+          const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+          await sleep(2000);
+
+          // 4. Construct the URL with both Name and ID
+          const destination = `${_ENROLLED_URL}?course=${encodeURIComponent(courseTitle)}&id=${courseId}`;
+
+          // 5. Redirect
+          window.location.href = destination;
+
+        }else{
+          throw new Error();
+        }
+
+      } catch (error) {
+          return showToast('Error', 'Error enrolling. Please try again!', 'error');
+      }
+      
+    })
+  </script>
 </body>
 
 </html>

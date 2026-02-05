@@ -106,7 +106,7 @@ window.renderCourses = (filter = 'All') => {
             <p class="card-text text-secondary small flex-grow-1">${course.shortDescription}</p>
             
             <div class="d-flex justify-content-between align-items-center text-muted small my-3 pt-3 border-top">
-                <span><i class="bi bi-clock me-1"></i> ${course.duration}</span>
+                <span><i class="bi bi-clock me-1"></i> ${course.duration} min</span>
                 <span><i class="bi bi-layers me-1"></i> ${course.modules} Modules</span>
             </div>
 
@@ -265,7 +265,7 @@ window.applySidebarFilters = () => {
                     <p class="card-text text-secondary">${course.shortDescription}</p>
                     <div class="d-flex gap-2">
                         <span class="badge bg-light text-dark border">${course.category}</span>
-                        <span class="badge bg-light text-dark border">${course.duration}</span>
+                        <span class="badge bg-light text-dark border">${course.duration} min</span>
                     </div>
                 </div>
             </div>`;
@@ -274,7 +274,7 @@ window.applySidebarFilters = () => {
 };
 
 // --- COURSE DETAIL LOGIC ---
-function renderCourseDetail(id) {
+async function renderCourseDetail(id) {
     
     const course = SAMPLE_COURSES.find(c => c.id === Number(id));
     if (!course) {
@@ -286,7 +286,7 @@ function renderCourseDetail(id) {
     document.querySelectorAll('.course-title-target').forEach(el => el.textContent = course.title);
     document.querySelectorAll('.course-desc-target').forEach(el => el.textContent = course.description);
     document.querySelectorAll('.course-level-target').forEach(el => el.textContent = course.level);
-    document.querySelectorAll('.course-duration-target').forEach(el => el.textContent = course.duration);
+    document.querySelectorAll('.course-duration-target').forEach(el => el.textContent = `${course.duration} min`);
     
     // Populate instructor
     if (course.trainerName) {
@@ -302,14 +302,22 @@ function renderCourseDetail(id) {
     console.log(imgTarget);
     if (imgTarget) {console.log(imgTarget); imgTarget.src = _HOST + _PORT + "/" + course.imageUrl;}
 
+    /* Start: fetch course syllabus */
+    
+    const response = await fetch(`${_ENDPOINT_PUBLIC_COURSES}/${course.id}/modules`, { method: "GET" });
+
+    const modules = await response.json();
+    
+    /* End: fetch course syllabus */
+
     // Populate syllabus
-    if (course.syllabus) {
+    if (modules) {
         const accordionContainer = document.getElementById('syllabusAccordion');
         if (accordionContainer) {
             accordionContainer.innerHTML = '';
             
-            course.syllabus.forEach((module, index) => {
-                const moduleId = `mod${index + 1}`;
+            modules.forEach((module, index) => {
+                const moduleId = module.id;
                 const isFirst = index === 0;
                 
                 const accordionItem = document.createElement('div');
@@ -317,13 +325,13 @@ function renderCourseDetail(id) {
                 accordionItem.innerHTML = `
                     <h2 class="accordion-header">
                         <button class="accordion-button ${isFirst ? '' : 'collapsed'}" type="button" 
-                                data-bs-toggle="collapse" data-bs-target="#${moduleId}">
+                                data-bs-toggle="collapse" data-bs-target="#target-${moduleId}">
                             Module ${index + 1}: ${module.title}
                         </button>
                     </h2>
-                    <div id="${moduleId}" class="accordion-collapse collapse ${isFirst ? 'show' : ''}" 
-                         data-bs-parent="#syllabusAccordion">
-                        <div class="accordion-body text-secondary">${module.content}</div>
+                    <div id="target-${moduleId}" class="accordion-collapse collapse ${isFirst ? 'show' : ''}" 
+                         data-bs-parent="#syllabusAccordion #${moduleId}">
+                        <div class="accordion-body text-secondary">${module.contentText}</div>
                     </div>
                 `;
                 accordionContainer.appendChild(accordionItem);

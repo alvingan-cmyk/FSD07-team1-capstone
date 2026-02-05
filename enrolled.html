@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MicroEdge Academy - Course Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <link rel="preload" href="./scripts/enrolled.js" as="script">
+</head>
+
+<body class="bg-light d-flex flex-column min-vh-100">
+
+    <div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;"></div>
+
+
+    <style>
+        /* Custom CSS for a sticky sidebar effect */
+        @media (min-width: 768px) {
+
+            /* Applies to medium screens and up */
+            .sticky-sidebar {
+                position: sticky;
+                top: 100px;
+                /* Adjust as needed for your navbar height */
+            }
+        }
+    </style>
+    </head>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-industrial shadow">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <!-- Company Logo (SVG) -->
+                <img style="margin-left: 20px;" class="logo" src="assets/logo/microedge-academy-logo.svg" width="50"
+                    height="auto" alt="microedge academy logo">
+                <span class="logoname logoname-bold">MicroEdge</span>
+                <span class="logoname logoname-light">Academy</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 20px;">
+                <ul class="navbar-nav ms-auto align-items-center gap-3">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#featured-courses">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="search.html">Search</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="auth.html">Sign Up</a></li>
+                    <li class="nav-item">
+                        <a href="auth.html">
+                            <button class="btn btn-safety btn-sm fw-bold px-3"
+                                onclick="showToast('Profile', 'Opening profile settings...', 'info')">Login</button></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button"
+                            data-bs-toggle="dropdown">
+                            <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center text-dark fw-bold"
+                                style="width: 30px; height: 30px;"><span id="navInitials"></span></div>
+                            <span id="navFirstName"></span><span id="navLastName"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Billing</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger" id="btnLogout" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4 flex-grow-1">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="mb-5"></div>
+
+
+                <div id="video-placeholder" class="ratio ratio-16x9 bg-dark rounded shadow-sm mb-4">
+                    <div class="text-white d-flex flex-column align-items-center justify-content-center">
+                        <i class="bi bi-play-btn fs-1 mb-2"></i>
+                        <p>Video Player Area</p>
+                    </div>
+                </div>
+
+                <ul class="nav nav-tabs" id="courseTabs" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#about" type="button"
+                            role="tab">About</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#projects" type="button"
+                            role="tab">Projects</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content py-4" id="courseTabsContent">
+                    <div class="tab-pane fade show active" id="about" role="tabpanel">
+                        <h1 id="dynamic-course-title" class="mb-3 text-primary text-dark fw-bold">Loading Course
+                            Title...</h1>
+                        <div id="dynamic-course-description" class="text-secondary lead">
+                            <p>Loading course content...</p>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="projects" role="tabpanel">
+                        <div class="card border-0 bg-light p-4">
+                            <h4 class="fw-bold"><i class="bi me-2"></i>Course Projects</h4>
+                            <p>No projects available for this course yet. Check back after completing the core modules!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm sticky-sidebar">
+                    <div id="lesson-count-header" class="card-header fw-bold bg-white">
+                        Loading Lessons...
+                    </div>
+                    <ul class="list-group list-group-flush" id="lesson-list">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="bg-industrial text-light px-4 pt-5 pb-3 border-top border-secondary">
+        <div class="container">
+            <div class="row g-5 mb-5">
+                <!-- Brand -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <!-- Company Logo (SVG) -->
+                        <svg version="1.1" width="44.174175" height="24.18697" id="svg7"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                            <path
+                                d="m 33.986439,0.88156253 c 1.65045,1.27777197 2.65811,3.31491697 3.71484,5.07812497 0.22276,0.369317 0.22276,0.369317 0.45001,0.746094 0.3161,0.52443 0.63175,1.049136 0.94696,1.574097 0.42125,0.700094 0.84445,1.398944 1.26898,2.0970505 0.4248,0.69889 0.84804,1.398715 1.27155,2.098384 0.15886,0.260854 0.31772,0.521708 0.48139,0.790467 1.31783,2.186286 2.36023,3.953889 1.97174,6.584533 -0.56686,1.609861 -1.58264,2.814604 -3,3.75 -1.52193,0.727877 -3.08872,0.712956 -4.67188,0.203125 -2.0368,-1.114477 -2.926761,-2.556847 -4.075556,-4.523437 -0.38166,-0.649319 -0.77827,-1.289144 -1.17444,-1.929688 -0.162425,-0.263935 -0.324845,-0.527871 -0.49219,-0.799804 -0.75103,-1.218747 -1.50442,-2.436034 -2.25781,-3.653321 -0.1367,-0.220913 -0.273405,-0.441826 -0.414245,-0.669433 -0.198586,-0.320735 -0.198586,-0.320735 -0.401186,-0.647949 -0.12806,-0.207419 -0.25612,-0.414837 -0.38806,-0.62854 -0.244305,-0.391889 -0.491655,-0.7819 -0.742432,-1.1696785 -0.11227,-0.174225 -0.224538,-0.34845 -0.34021,-0.527954 -0.09888,-0.151042 -0.19775,-0.302084 -0.299623,-0.457703 -0.833632,-1.532702 -0.704247,-3.514478 -0.49237,-5.195618 0.69402,-1.460251 1.837595,-2.496716 3.250001,-3.24999997 1.938315,-0.585909 3.59502,-0.338311 5.394531,0.53125 z"
+                                fill="#f6b733" id="path2" style="stroke-width:0.25" />
+                            <path
+                                d="m 16.920034,0.61593753 c 2.185935,1.25106997 3.12317,3.22739697 4.300781,5.37207097 0.629736,1.139821 1.299008,2.252804 1.980469,3.362304 0.114284,0.18627 0.228567,0.372539 0.346314,0.564453 0.580191,0.9420215 1.166003,1.8802805 1.757202,2.8154305 0.170912,0.270945 0.170912,0.270945 0.345275,0.547363 0.215255,0.340487 0.431462,0.680373 0.648805,1.019532 1.189515,1.878729 1.564335,3.331899 1.29303,5.553222 -0.549113,1.613018 -1.58713,2.81757 -3.000001,3.75 -1.521925,0.727877 -3.088718,0.712956 -4.671875,0.203125 -2.105522,-1.152078 -3.026185,-2.686334 -4.234375,-4.71875 -0.17619,-0.29237 -0.352605,-0.584605 -0.529236,-0.876709 C 14.80106,17.619365 14.447266,17.029851 14.094717,16.439547 13.642539,15.68482 13.185579,14.933369 12.725698,14.183321 12.000068,12.997166 11.291426,11.80202 10.591909,10.600313 10.494142,10.435515 10.396374,10.270716 10.295644,10.100924 9.1099685,8.0791615 8.3491145,6.2300705 8.8419085,3.8503125 c 0.684304,-1.615053 1.7717465,-2.607469 3.2500005,-3.49999997 1.629842,-0.54328 3.269627,-0.454589 4.828125,0.265625 z"
+                                fill="#f6b733" id="path3" style="stroke-width:0.25" />
+                            <path
+                                d="m 7.8165175,13.069063 c 1.667767,0.761263 2.5413515,1.73163 3.2978525,3.372071 0.500171,1.448994 0.556295,2.982275 -0.120117,4.375 -1.0916065,1.601812 -2.2044185,2.851307 -4.1523445,3.284179 -1.673715,0.192529 -2.93492,0.130393 -4.321289,-0.878906 -1.33382,-1.15456 -2.28827497,-2.477054 -2.50878897,-4.273437 -0.06539,-1.578111 0.119554,-2.817891 1.08007797,-4.097657 1.907273,-1.986926 4.008545,-2.601194 6.724609,-1.78125 z"
+                                fill="#f3b533" id="path4" style="stroke-width:0.25" />
+                        </svg>
+
+                        <span class="fw-bold fs-5">MicroEdge Academy</span>
+                    </div>
+                    <p class="text-secondary mb-4">
+                        Empowering workforces with accessible, high-quality safety education since 2020.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-secondary text-decoration-none fs-5 hover-warning transition-colors"><i
+                                class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-secondary text-decoration-none fs-5 hover-warning transition-colors"><i
+                                class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-secondary text-decoration-none fs-5 hover-warning transition-colors"><i
+                                class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-secondary text-decoration-none fs-5 hover-warning transition-colors"><i
+                                class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Platform Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-white fw-bold text-uppercase mb-3">Platform</h6>
+                    <ul class="list-unstyled text-secondary">
+                        <li class="mb-2"><a href="search.html"
+                                class="text-decoration-none text-reset hover-warning">Browse
+                                Courses</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset hover-warning">Certification
+                                Check</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset hover-warning">Team
+                                Dashboard</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset hover-warning">Mobile
+                                App</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-white fw-bold text-uppercase mb-3">Support</h6>
+                    <ul class="list-unstyled text-secondary">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset hover-warning">Help
+                                Center</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset hover-warning">Safety
+                                Standards</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset hover-warning">Privacy
+                                Policy</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset hover-warning">Terms of
+                                Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="text-white fw-bold text-uppercase mb-3">Stay Updated</h6>
+                    <p class="text-secondary mb-3">Get the latest safety protocols and course updates.</p>
+                    <form
+                        onsubmit="event.preventDefault(); showToast('Success', 'Subscribed successfully!', 'success');">
+                        <div class="input-group">
+                            <input type="email" class="form-control bg-dark text-white border-secondary"
+                                placeholder="Enter your email" aria-label="Enter your email" />
+                            <button class="btn btn-safety" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div
+                class="border-top border-secondary pt-3 d-flex flex-column flex-md-row justify-content-between align-items-center text-secondary small">
+                <p class="mb-2 mb-md-0">&copy; 2026 MicroEdge Academy. All rights reserved.</p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-reset text-decoration-none">Sitemap</a>
+                    <a href="#" class="text-reset text-decoration-none">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="scripts/const.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script type="module" src="./scripts/enrolled.js"></script>
+
+    <!-- Internal script to process authentication -->
+    <script>
+        const token = isAuthenticated();
+
+        if (!token)
+            window.location = _HOME_URL;
+    </script>
+
+</body>
+
+</html>
