@@ -21,6 +21,7 @@ const _ENDPOINT_PUBLIC_COURSE = _HOST + _PORT + "/api/v1/courses/";             
 const _ENDPOINT_PUBLIC_MODULES = _HOST + _PORT + "/api/v1/courses";                           // ✅
 const _ENDPOINT_RESTRICTED_ENROLLMENT = _HOST + _PORT + "/api/v1/enrollments";                // ✅
 const _ENDPOINT_RESTRICTED_CREATE_ENROLLMENT = _HOST + _PORT + "/api/v1/enrollments/create";  // ✅
+const _ENDPOINT_RESTRICTED_ENROL_STATUS = _HOST + _PORT + "/api/v1/enrollments/";             // ✅
 const _ENDPOINT_TRAINEE_COMPLETION = _HOST + _PORT + "/api/v1/progress/trainee/";             // to add: {traineeId}/complete      
 const _ENDPOINT_PROFILE = _HOST + _PORT + "/api/v1/user/profile";
 const _ENDPOINT_UPDATEPROFILE = _HOST + _PORT + "/api/v1/user/update";

@@ -83,9 +83,12 @@ async function renderEnrolledPage(course = null) {
                 if (videoPlaceholder) {
                     // Check if videoUrl actually exists in your data
                     if (module.videoUrl) {
+
+                        const fullVideoUrl =  _HOST + _PORT + "/" + module.videoUrl;
+
                         videoPlaceholder.innerHTML = `
                 <video controls autoplay class="w-100 h-100 rounded shadow" style="background: black;">
-                    <source src="${module.videoUrl}" type="video/mp4">
+                    <source src="${fullVideoUrl}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             `;
@@ -113,4 +116,18 @@ async function renderEnrolledPage(course = null) {
             lessonList.appendChild(li);
         });
     }
+}
+
+
+async function isEnrolledToCourse(courseId = 0, token = null){
+
+      const enrolledStatus = await fetch(`${_ENDPOINT_RESTRICTED_ENROL_STATUS}${courseId}`, {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+        },
+      });
+
+      // returns true (enrolled) | false (not enrolled)
+      return await enrolledStatus.json();
 }

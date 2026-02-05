@@ -11,48 +11,55 @@
 </head>
 <body class="bg-light">
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-industrial sticky-top shadow">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-            <img class="logo" src="assets/logo/microedge-academy-logo.svg" width="50" height="auto" alt="microedge academy logo">
-
-     <span class="logoname logoname-bold">MicroEdge</span>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-industrial shadow" >
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <!-- Company Logo (SVG) -->
+                <img style="margin-left: 20px;" class="logo" src="assets/logo/microedge-academy-logo.svg" width="50"
+                    height="auto" alt="microedge academy logo">
+                <span class="logoname logoname-bold">MicroEdge</span>
                 <span class="logoname logoname-light">Academy</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-center gap-3">
-            <li class="nav-item"><a class="nav-link active" href="dashboard.html">Dashboard</a></li>
-            <li class="nav-item"><a class="nav-link" href="search.html">Courses</a></li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown">
-                   <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center text-dark fw-bold" style="width: 30px; height: 30px;"><span id="navInitials"></span></div>
-                   <span id="navFirstName"></span><span id="navLastName"></span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li><a class="dropdown-item" href="#">Billing</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item text-danger" id="btnLogout" href="#">Logout</a></li>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 20px;">
+                <ul class="navbar-nav ms-auto align-items-center gap-3">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#featured-courses">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="search.html">Search</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="auth.html">Sign Up</a></li>
+                    <li class="nav-item">
+                        <a href="auth.html">
+                            <button class="btn btn-safety btn-sm fw-bold px-3"
+                                onclick="showToast('Profile', 'Opening profile settings...', 'info')">Login</button></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown">
+                        <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center text-dark fw-bold" style="width: 30px; height: 30px;"><span id="navInitials"></span></div>
+                        <span id="navFirstName"></span><span id="navLastName"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="trainee-board.html">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Billing</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" id="btnLogout" href="#">Logout</a></li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+            </div>
+        </div>
+    </nav>
 
   <div class="container py-4">
       <div class="row g-4">
           <!-- Sidebar / Profile Summary -->
           <div class="col-lg-3">
               <div class="card shadow-sm border-0 text-center p-4 mb-4">
-                  <div class="mx-auto bg-light rounded-circle p-1 mb-3" style="width: 100px; height: 100px;">
-                      <img src="https://picsum.photos/200" class="rounded-circle w-100 h-100 object-fit-cover" alt="Profile">
-                  </div>
-                  <h5 class="fw-bold mb-1">Richard Mars</h5>
-                  <p class="text-muted small">Senior Welder</p>
+                  <div class="mx-auto bg-warning rounded-circle d-flex align-items-center justify-content-center text-dark fw-bold mb-3" style="width: 80px; height: 80px;"><span class="display-5 fw-bold" id="profileInitials"></span></div>
+
+                  <h5 class="fw-bold mb-1"><span id="profileFirstName"></span>&nbsp;&nbsp;<span id="profileLastName"></span></h5>
                   <hr>
                   <div class="row text-center">
                       <div class="col-6 border-end">
@@ -160,5 +167,28 @@
    <!-- Site-app scripts -->
     <script src="scripts/const.js"></script>
     <script src="scripts/auth.js"></script>
+
+    <!-- Internal Script to load the user profile on the age -->
+    <script>
+        // Function to manage navigation bar user information
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const profileInitials = document.getElementById("profileInitials");
+            const profileFirstName = document.getElementById("profileFirstName");
+            const profileLastName = document.getElementById("profileLastName");
+            
+            // ensure that user is authenticated
+            const token = isAuthenticated();
+
+            if(!token)
+                return window.location = _LOGIN_URL;
+                
+            const user = decodeUser(token);                                     // extract and populate the user profile
+            profileInitials.textContent = `${user.firstName.charAt(0).toUpperCase()}${user.lastName.charAt(0).toUpperCase()}`;
+            profileFirstName.textContent = user["firstName"];
+            profileLastName.textContent = user["lastName"];
+
+        });
+    </script>
 </body>
 </html>

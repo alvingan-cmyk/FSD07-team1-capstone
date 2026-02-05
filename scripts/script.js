@@ -1,72 +1,7 @@
 // import { GoogleGenAI } from "@google/genai";
 
 // --- DATA ---
-const SAMPLE_COURSES = [
-    {
-    id: '1',
-    title: 'Construction Site Safety Essentials',
-    description: 'A foundational course covering the critical safety practices required on construction sites to prevent injuries and maintain compliance.',
-    image: 'assets/img/course_07.jpg',
-    duration: '15 mins',
-    modules: 4,
-    level: 'Beginner',
-    category: 'Basics',
-    // badge: { text: 'Mandatory', color: 'danger' }
-    },
-    {
-    id: '2',
-    title: 'Fundamentals of Building Construction',
-    description: 'Learn the basic principles, materials, and processes involved in modern building construction from groundworks to finishing.',
-    image: 'assets/img/course_08.jpg',
-    duration: '25 mins',
-    modules: 6,
-    level: 'Intermediate',
-    category: 'Emergency',
-    badge: { text: 'Updated', color: 'warning' }
-    },
-    {
-    id: '3',
-    title: 'Working at Heights & Fall Prevention',
-    description: 'Focused training on safe working practices for ladders, scaffolds, and elevated platforms to reduce fall-related risks.',
-    image: 'assets/img/course_09.jpg',
-    duration: '45 mins',
-    modules: 8,
-    level: 'Advanced',
-    category: 'Chemicals'
-    },
-    {
-    id: '4',
-    title: 'Heavy Machinery & Equipment Operations',
-    description: 'An introductory course to the safe operation, inspection, and maintenance of common construction equipment.',
-    image: 'assets/img/course_10.jpg',
-    duration: '20 mins',
-    modules: 3,
-    level: 'Beginner',
-    category: 'Health',
-    badge: { text: 'Trending', color: 'success' }
-    },
-    {
-    id: '5',
-    title: 'Construction Site Communication & Team Coordination',
-    description: 'A course on effective communication, teamwork, and coordination practices to improve productivity and safety on-site.',
-    image: 'assets/img/course_11.jpg',
-    duration: '30 mins',
-    modules: 5,
-    level: 'Intermediate',
-    category: 'Machinery'
-    },
-    {
-    id: '6',
-    title: 'Environmental Practices in Construction',
-    description: 'Covers sustainable and eco-friendly practices for minimising environmental impact during construction activities.',
-    image: 'assets/img/course_12.jpg',
-    duration: '40 mins',
-    modules: 7,
-    level: 'Advanced',
-    category: 'Electrical',
-    badge: { text: 'Hard', color: 'dark' }
-    }
-];
+let SAMPLE_COURSES = [];
 
 // --- TOASTS ---
 window.showToast = (title, message, type) => {
@@ -155,33 +90,33 @@ window.renderCourses = (filter = 'All') => {
     : SAMPLE_COURSES.filter(c => c.category === filter);
 
     filtered.forEach(course => {
-    const badgeHtml = course.badge
-        ? `<span class="position-absolute top-0 start-0 badge bg-${course.badge.color} m-2 shadow-sm">${course.badge.text}</span>`
-        : '';
 
+    const courseImage = _HOST + _PORT + "/" + course.imageUrl;
     const col = document.createElement('div');
     col.className = 'col';
     col.innerHTML = `
         <div class="card h-100 shadow-sm">
             <div class="position-relative">
-                <img src="${course.image}" class="card-img-top" alt="${course.title}" style="height: 200px; object-fit: cover;">
+                <img src="${courseImage}" class="card-img-top" alt="${course.title}" style="height: 200px; object-fit: cover;">
                 <span class="position-absolute top-0 end-0 badge bg-light text-dark m-2 opacity-75 shadow-sm">${course.level}</span>
-                ${badgeHtml}
+
             </div>
             <div class="card-body d-flex flex-column">
-            <small class="text-safety-orange fw-bold text-uppercase mb-2">${course.category}</small>
+            <small class="text-safety-orange fw-bold text-uppercase mb-2">${course.categoryName}</small>
             <h5 class="card-title">${course.title}</h5>
             <p class="card-text text-secondary small flex-grow-1">${course.description}</p>
             
             <div class="d-flex justify-content-between align-items-center text-muted small my-3 pt-3 border-top">
-                <span><i class="bi bi-clock me-1"></i> ${course.duration}</span>
-                <span><i class="bi bi-layers me-1"></i> ${course.modules} Modules</span>
+                <span><i class="bi bi-clock me-1"></i> ${course.duration} min</span>
+                <span><i class="bi bi-person-fill me-1"></i>
+                <span class="fw-bold">Trainer:</span> 
+                ${course.trainerName}</span>
             </div>
 
-            <button onclick="openCourseModal('${course.id}')" class="btn btn-dark w-100 mt-auto" style="background-color: #1A202C;">
+            <a href="${_COURSE_URL}?id=${course.id}" class="btn btn-dark w-100 mt-auto" style="background-color: #1A202C;">
                 View Module
             </button>
-            </div>
+            </a>
         </div>
         `;
     grid.appendChild(col);
@@ -191,6 +126,60 @@ window.renderCourses = (filter = 'All') => {
 window.filterCourses = (category) => {
     renderCourses(category);
 };
+
+// --- PAGE SPECIFIC INIT ---
+document.addEventListener('DOMContentLoaded', async () => {
+
+    // Start: Fetch all courses from API to populate SAMPLE_COURSES
+        /* Start fetching courses */
+    const response = await fetch(_ENDPOINT_PUBLIC_COURSES, { method: "GET" });
+
+    const results = await response.json();
+    
+    SAMPLE_COURSES = [...results.content];
+    // End: Fetch all courses from API to populate SAMPLE COURSES
+
+    // 1. Landing Page Init
+    if (document.getElementById('course-grid')) {
+        renderCourses();
+    }
+
+    // // 2. Dashboard Page Init
+    // if (document.getElementById('dashboard-course-list')) {
+    //     renderDashboardCourses();
+    // }
+
+    // // 3. Search Page Init
+    // if (document.getElementById('search-results-container')) {
+    //     // Parse URL params for query
+    //     const urlParams = new URLSearchParams(window.location.search);
+    //     const query = urlParams.get('q');
+        
+    //     // Update display
+    //     const displayEl = document.getElementById('search-query-display');
+    //     if (displayEl && query) {
+    //         displayEl.textContent = `Search Results for: "${query}"`;
+    //     }
+        
+    //     // Render search results
+    //     renderSearchResults(query);
+        
+    //     // Attach filter button handler
+    //     const filterBtn = document.getElementById('apply-filters-btn');
+    //     if (filterBtn) {
+    //         filterBtn.addEventListener('click', applySidebarFilters);
+    //     }
+    // }
+
+    // // 4. Course Detail Page Init
+    // if (document.getElementById('course-detail-container')) {
+    //     const urlParams = new URLSearchParams(window.location.search);
+    //     const courseId = urlParams.get('id');
+    //     if (courseId) {
+    //         renderCourseDetail(courseId);
+    //     }
+    // }
+});
 
 // Initial Render if grid exists
 if (document.getElementById('course-grid')) {

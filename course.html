@@ -15,46 +15,50 @@
 
   <div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;"></div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-industrial shadow" >
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-                <!-- Company Logo (SVG) -->
-                <img style="margin-left: 20px;" class="logo" src="assets/logo/microedge-academy-logo.svg" width="50"
-                    height="auto" alt="microedge academy logo">
-                <span class="logoname logoname-bold">MicroEdge</span>
-                <span class="logoname logoname-light">Academy</span>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-industrial shadow">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <!-- Company Logo (SVG) -->
+        <img style="margin-left: 20px;" class="logo" src="assets/logo/microedge-academy-logo.svg" width="50"
+          height="auto" alt="microedge academy logo">
+        <span class="logoname logoname-bold">MicroEdge</span>
+        <span class="logoname logoname-light">Academy</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 20px;">
+        <ul class="navbar-nav ms-auto align-items-center gap-3">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#featured-courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="search.html">Search</a></li>
+          <li class="nav-item"><a class="nav-link active" href="auth.html">Sign Up</a></li>
+          <li class="nav-item">
+            <a href="auth.html">
+              <button class="btn btn-safety btn-sm fw-bold px-3"
+                onclick="showToast('Profile', 'Opening profile settings...', 'info')">Login</button></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button"
+              data-bs-toggle="dropdown">
+              <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center text-dark fw-bold"
+                style="width: 30px; height: 30px;"><span id="navInitials"></span></div>
+              <span id="navFirstName"></span><span id="navLastName"></span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav" style="margin-right: 20px;">
-                <ul class="navbar-nav ms-auto align-items-center gap-3">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#featured-courses">Courses</a></li>
-                    <li class="nav-item"><a class="nav-link" href="search.html">Search</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="auth.html">Sign Up</a></li>
-                    <li class="nav-item">
-                        <a href="auth.html">
-                            <button class="btn btn-safety btn-sm fw-bold px-3"
-                                onclick="showToast('Profile', 'Opening profile settings...', 'info')">Login</button></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown">
-                        <div class="bg-warning rounded-circle d-flex align-items-center justify-content-center text-dark fw-bold" style="width: 30px; height: 30px;"><span id="navInitials"></span></div>
-                        <span id="navFirstName"></span><span id="navLastName"></span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="#">Billing</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item text-danger" id="btnLogout" href="#">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="trainee-board.html">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Billing</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item text-danger" id="btnLogout" href="#">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <div id="course-detail-container">
     <!-- Hero -->
@@ -110,8 +114,7 @@
 
           <!-- Action Card -->
           <div class="card border-0 shadow-sm sticky-top z-0" style="top: 100px;">
-            <img src="" class="card-img-top course-img-target" alt="Course"
-              style="height: auto; object-fit: cover;">
+            <img src="" class="card-img-top course-img-target" alt="Course" style="height: auto; object-fit: cover;">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <span class="fs-4 fw-bold">Free</span>
@@ -230,13 +233,35 @@
   <script src="scripts/const.js"></script>
   <script src="scripts/auth.js"></script>
   <script type="module" src="./scripts/search.js"></script>
+  <script src="./scripts/enrolled.js"></script>
 
   <!-- Internal Script to process enrolment -->
   <script>
-    document.getElementById("btnEnrol").addEventListener("click", async() => {
+    
+    document.addEventListener("DOMContentLoaded", async () => {
+
+      // 1. Get the ID from the URL as well (better for tracking)
+      const urlParams = new URLSearchParams(window.location.search);
+      const courseId = urlParams.get("id") || "no-id";
+
+      // 2. Check if the user is enrolled
+      const token = isAuthenticated();
+
+      const status = await isEnrolledToCourse(courseId, token);
+
+      // 3. We will only disable the enrolment button, if user is enrolled
+      if (status) {
+        const btnEnrol = document.getElementById("btnEnrol");
+        btnEnrol.classList.remove("btn-safety");
+        btnEnrol.classList.add("btn-success");
+        btnEnrol.textContent = "Continue Course (Enrolled).";
+      }
+
+    });
+    document.getElementById("btnEnrol").addEventListener("click", async () => {
 
       const token = isAuthenticated();
-      
+
       // 1. Get the ID from the URL as well (better for tracking)
       const urlParams = new URLSearchParams(window.location.search);
       const courseId = urlParams.get("id") || "no-id";
@@ -254,18 +279,25 @@
         return;
       }
 
+      const status = await isEnrolledToCourse(courseId, token);
+
+      // if enrolled (status = true)
+      if(status){
+          // Redirect the user to the course itself and return
+          return window.location = `${_ENROLLED_URL}?course=${encodeURIComponent(courseTitle)}&id=${courseId}`;
+      }
+
+      // otherwise, enrol the user
       try {
-        
+
         const enrollmentStatus = await fetch(`${_ENDPOINT_RESTRICTED_CREATE_ENROLLMENT}/${courseId}`, {
           method: "POST",
-            headers: {
-                "Authorization": `Bearer ${token}`,
-            },
+          headers: {
+            "Authorization": `Bearer ${token}`,
+          },
         });
 
-        console.log(await enrollmentStatus);
-        
-        if(enrollmentStatus.ok){
+        if (enrollmentStatus.ok) {
           showToast('Success', 'Enrolled in course successfully!', 'success');
 
           // delay 2 seconds so that the toast can be seen.
@@ -278,14 +310,14 @@
           // 5. Redirect
           window.location.href = destination;
 
-        }else{
+        } else {
           throw new Error();
         }
 
       } catch (error) {
-          return showToast('Error', 'Error enrolling. Please try again!', 'error');
+        return showToast('Error', 'Error enrolling. Please try again!', 'error');
       }
-      
+
     })
   </script>
 </body>
