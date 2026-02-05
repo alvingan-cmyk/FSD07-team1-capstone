@@ -8,13 +8,30 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="./assets/styles.css">
-  <link rel="preload" href="./scripts/search.js" as="script">
+  <link rel="preload" href="./scripts/enrolled.js" as="script">
 </head>
 
-<body class="bg-light">
+<body class="bg-light d-flex flex-column min-vh-100">
 
   <div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;"></div>
 
+
+  <style>
+    /* Custom CSS for a sticky sidebar effect */
+    @media (min-width: 768px) {
+
+      /* Applies to medium screens and up */
+      .sticky-sidebar {
+        position: sticky;
+        top: 100px;
+        /* Adjust as needed for your navbar height */
+      }
+    }
+  </style>
+  </head>
+
+
+  <!-- Navbar would go here -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-industrial sticky-top shadow">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
@@ -41,77 +58,59 @@
     </div>
   </nav>
 
-  <div id="course-detail-container">
-    <!-- Hero -->
-    <header class="course-hero">
-      <div class="container px-4">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb pt-2">
-            <li class="breadcrumb-item"><a href="search.html"
-                class="text-dark opacity-75 text-decoration-none">Courses</a></li>
-            <li class="breadcrumb-item active text-dark" aria-current="page">Detail</li>
-          </ol>
-        </nav>
-        <h1 class="display-5 fw-bold mb-3 course-title-target">Loading...</h1>
+  <div class="container mt-4 flex-grow-1">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="mb-5"></div>
+                 
 
-        <div class="d-flex gap-4 mt-4 text-dark">
-          <div class="d-flex align-items-center gap-2">
-            <i class="bi bi-bar-chart-fill text-warning"></i> <span class="course-level-target">Level</span>
+        <div id="video-placeholder" class="ratio ratio-16x9 bg-dark rounded shadow-sm mb-4">
+          <div class="text-white d-flex flex-column align-items-center justify-content-center">
+            <i class="bi bi-play-btn fs-1 mb-2"></i>
+            <p>Video Player Area</p>
           </div>
-          <div class="d-flex align-items-center gap-2">
-            <i class="bi bi-clock-fill text-warning"></i> <span class="course-duration-target">Duration</span>
+        </div>
+
+        <ul class="nav nav-tabs" id="courseTabs" role="tablist">
+          <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#about" type="button"
+              role="tab">About</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#projects" type="button"
+              role="tab">Projects</button>
+          </li>
+        </ul>
+
+        <div class="tab-content pt-4" id="courseTabsContent">
+          <div class="tab-pane fade show active" id="about" role="tabpanel">
+            <h1 id="dynamic-course-title" class="mb-3 text-primary text-dark fw-bold">Loading Course Title...</h1>
+            <div id="dynamic-course-description" class="text-secondary lead">
+              <p>Loading course content...</p>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="projects" role="tabpanel">
+            <div class="card border-0 bg-light p-4">
+              <h4 class="fw-bold"><i class="bi me-2"></i>Course Projects</h4>
+              <p>No projects available for this course yet. Check back after completing the core modules!</p>
+            </div>
           </div>
         </div>
       </div>
-    </header>
 
-    <div class="container py-5">
-      <div class="row g-5">
-        <!-- Main Content -->
-        <div class="col-lg-8">
-          <div class="bg-white p-4 rounded shadow-sm mb-4">
-            <h4 class="fw-bold mb-3">About this course</h4>
-            <p class="text-secondary course-desc-target">Loading course description...</p>
+      <div class="col-md-4">
+        <div class="card shadow-sm sticky-sidebar">
+          <div id="lesson-count-header" class="card-header fw-bold bg-white">
+            Loading Lessons...
           </div>
-
-          <!-- Accordion for Modules -->
-          <h4 class="fw-bold mb-3 px-4">Syllabus</h4>
-          <div class="accordion mb-4" id="syllabusAccordion">
-            <!-- Modules will be inserted here by JavaScript -->
-          </div>
-        </div>
-
-        <!-- Sidebar -->
-        <div class="col-lg-4">
-          <!-- Instructor Card -->
-          <div class="card border-0 shadow-sm mb-4">
-            <div class="card-body text-center">
-              <img src="./assets/img/c05-t03.jpg" class="instructor-avatar mb-3" alt="Instructor">
-              <h5 class="fw-bold course-instructor-target">Instructor Name</h5>
-              <p class="text-muted small instructor-credentials">Loading credentials...</p>
-              <button class="btn btn-outline-dark btn-sm w-100">View Profile</button>
-            </div>
-          </div>
-
-          <!-- Action Card -->
-          <div class="card border-0 shadow-sm sticky-top z-0" style="top: 100px;">
-            <img src="./assets/img/c01-t01.jpg" class="card-img-top course-img-target" alt="Course"
-              style="height: 150px; object-fit: cover;">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="fs-4 fw-bold">Course</span>
-                <span class="badge bg-success">Certification Included</span>
-              </div>
-              <button class="btn btn-safety w-100" onclick="enrollInCourse()">Enroll Now</button>
-              </button>
-
-              <small class="text-muted text-center d-block">Lifetime access • Mobile friendly</small>
-            </div>
-          </div>
+          <ul class="list-group list-group-flush" id="lesson-list">
+          </ul>
         </div>
       </div>
     </div>
   </div>
+
 
   <!-- Footer -->
   <footer class="bg-industrial text-light px-4 pt-5 pb-3 border-top border-secondary">
@@ -207,14 +206,8 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="importmap">
-    {
-      "imports": {
-        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
-      }
-    }
-  </script>
-  <script type="module" src="./scripts/search.js"></script>
+
+  <script type="module" src="./scripts/enrolled.js"></script>
 </body>
 
 </html>

@@ -573,6 +573,27 @@ function renderCourseDetail(id) {
     }
 }
 
+window.enrollInCourse = () => {
+    // 1. Grab the title, but prioritize the one that isn't just "Loading..."
+    const titleEl = document.querySelector('.course-title-target');
+    const courseTitle = titleEl ? titleEl.textContent : 'Unknown Course';
+
+    if (courseTitle === 'Loading...') {
+        showToast('Wait a moment', 'Course details are still loading.', 'warning');
+        return;
+    }
+
+    // 2. Get the ID from the URL as well (better for tracking)
+    const urlParams = new URLSearchParams(window.location.search);
+    const courseId = urlParams.get('id') || 'no-id';
+
+    // 3. Construct the URL with both Name and ID
+    const destination = `enrolled.html?course=${encodeURIComponent(courseTitle)}&id=${courseId}`;
+
+    // 4. Redirect
+    window.location.href = destination;
+};
+
 // --- CHAT BOT (Existing) ---
 let isChatOpen = false;
 
@@ -672,3 +693,4 @@ function appendMessage(role, text) {
     msgContainer.appendChild(div);
     msgContainer.scrollTop = msgContainer.scrollHeight;
 }
+
