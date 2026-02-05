@@ -1,5 +1,3 @@
-import { GoogleGenAI } from "@google/genai";
-
 // --- DATA ---
 const SAMPLE_COURSES = [
     {
@@ -251,6 +249,355 @@ const SAMPLE_COURSES = [
             {
                 title: "Leadership in Healthcare",
                 content: "Driving quality culture.<br>Accountability."
+            }
+        ]
+    },
+    // ========== SAFETY COURSES (NEW) ==========
+    {
+        id: '7',
+        title: 'Workplace Safety Fundamentals',
+        shortDescription: 'Essential workplace safety concepts for all employees including hazard identification and PPE usage.',
+        description: 'This course introduces essential workplace safety concepts for all employees. Learners will understand hazard identification, PPE usage, and safe work behaviors. The course promotes accident prevention and personal responsibility for safety. It serves as a foundational safety program for new hires.',
+        image: './assets/img/workplace.jpg',
+        duration: '15 mins',
+        modules: 5,
+        level: 'Beginner',
+        category: 'Safety',
+        badge: { text: 'Mandatory', color: 'danger' },
+        instructor: {
+            name: "Alex Martinez",
+            credentials: "Certified Safety Professional (CSP). OSHA 30-Hour Trainer with 8+ years experience.",
+            image: "./assets/img/alex_m.jpg"
+        },
+        syllabus: [
+            {
+                title: "Safety Awareness",
+                content: "Importance of workplace safety<br>Employee responsibilities"
+            },
+            {
+                title: "Hazard Identification",
+                content: "Common workplace hazards<br>Unsafe conditions"
+            },
+            {
+                title: "Personal Protective Equipment",
+                content: "Types of PPE<br>Proper use and care"
+            },
+            {
+                title: "Safe Work Practices",
+                content: "Safety procedures<br>Everyday safe behaviors"
+            },
+            {
+                title: "Accident Prevention",
+                content: "Common causes<br>Prevention strategies"
+            }
+        ]
+    },
+    {
+        id: '8',
+        title: 'Hazard Control & Safe Practices',
+        shortDescription: 'Focus on identifying, assessing, and controlling workplace hazards with safe work procedures.',
+        description: 'This course focuses on identifying, assessing, and controlling workplace hazards. Learners will study safe work procedures, risk assessment techniques, and incident prevention strategies. The course reinforces proper reporting and corrective actions. It is suitable for employees with ongoing safety responsibilities.',
+        image: './assets/img/hazard_control.jpg',
+        duration: '25 mins',
+        modules: 5,
+        level: 'Intermediate',
+        category: 'Safety',
+        instructor: {
+            name: "Rachel Torres",
+            credentials: "Industrial Hygienist (CIH). Safety Management Specialist with 10+ years experience.",
+            image: "./assets/img/rachel.jpg"
+        },
+        syllabus: [
+            {
+                title: "Risk Assessment Basics",
+                content: "Identifying and evaluating risks<br>Risk control hierarchy"
+            },
+            {
+                title: "Safe Work Procedures",
+                content: "Job safety analysis<br>SOPs"
+            },
+            {
+                title: "Hazard Control Methods",
+                content: "Engineering and admin controls<br>PPE usage"
+            },
+            {
+                title: "Incident Reporting",
+                content: "Reporting systems<br>Corrective actions"
+            },
+            {
+                title: "Monitoring Safety Performance",
+                content: "Safety observations<br>Continuous improvement"
+            }
+        ]
+    },
+    {
+        id: '9',
+        title: 'Safety Leadership & Risk Management',
+        shortDescription: 'Develop advanced skills in safety leadership and organizational risk management.',
+        description: 'This course develops advanced skills in safety leadership and organizational risk management. Learners will explore safety audits, incident investigations, and risk analysis methods. The course emphasizes building a strong safety culture across teams. It is designed for supervisors and safety professionals.',
+        image: './assets/img/safety_management.jpg',
+        duration: '35 mins',
+        modules: 5,
+        level: 'Advanced',
+        category: 'Safety',
+        instructor: {
+            name: "James Patterson",
+            credentials: "Director of Safety Operations. MS in Occupational Safety & Health. 15+ years leadership.",
+            image: "./assets/img/james.jpg"
+        },
+        syllabus: [
+            {
+                title: "Safety Leadership",
+                content: "Leading by example<br>Influencing behavior"
+            },
+            {
+                title: "Advanced Risk Analysis",
+                content: "Root cause analysis<br>Trend identification"
+            },
+            {
+                title: "Safety Audits",
+                content: "Audit planning<br>Using results"
+            },
+            {
+                title: "Incident Investigation",
+                content: "Investigation techniques<br>Preventing recurrence"
+            },
+            {
+                title: "Strategic Safety Planning",
+                content: "Long-term goals<br>Safety metrics"
+            }
+        ]
+    },
+
+    // ========== WORKPLACE OPERATIONS COURSES (NEW) ==========
+    {
+        id: '10',
+        title: 'Workplace Operations Basics',
+        shortDescription: 'Introduction to core elements of daily workplace operations and standard procedures.',
+        description: 'This course introduces the core elements of daily workplace operations. Learners will gain an understanding of standard procedures, communication flows, and task coordination. The course supports efficient work habits and role clarity. It is ideal for onboarding and new employees.',
+        image: './assets/img/workplace_basics.jpg',
+        duration: '18 mins',
+        modules: 5,
+        level: 'Beginner',
+        category: 'Workplace Operations',
+        instructor: {
+            name: "Maria Santos",
+            credentials: "Operations Coordinator. Certified in Lean Six Sigma Yellow Belt. 7+ years experience.",
+            image: "./assets/img/maria.jpg"
+        },
+        syllabus: [
+            {
+                title: "Operational Overview",
+                content: "Daily workflows<br>Key processes"
+            },
+            {
+                title: "Standard Operating Procedures",
+                content: "Purpose of SOPs<br>Following procedures"
+            },
+            {
+                title: "Workplace Communication",
+                content: "Clear instructions<br>Reporting issues"
+            },
+            {
+                title: "Task Coordination",
+                content: "Managing tasks<br>Team collaboration"
+            },
+            {
+                title: "Time & Resource Awareness",
+                content: "Workload management<br>Efficient resource use"
+            }
+        ]
+    },
+    {
+        id: '11',
+        title: 'Process Improvement & Team Coordination',
+        shortDescription: 'Methods to improve workflows and reduce operational inefficiencies through team coordination.',
+        description: 'This course examines methods to improve workflows and reduce operational inefficiencies. Learners will explore coordination across teams, documentation practices, and process consistency. The course focuses on minimizing errors and improving productivity. It is designed for experienced staff and team leads.',
+        image: './assets/img/team_coordinate.jpg',
+        duration: '28 mins',
+        modules: 5,
+        level: 'Intermediate',
+        category: 'Workplace Operations',
+        instructor: {
+            name: "Robert Kim",
+            credentials: "Process Improvement Analyst. Lean Six Sigma Green Belt. PMP Certified.",
+            image: "./assets/img/robert.jpg"
+        },
+        syllabus: [
+            {
+                title: "Process Mapping",
+                content: "Understanding workflows<br>Identifying gaps"
+            },
+            {
+                title: "Improving Efficiency",
+                content: "Reducing waste<br>Streamlining tasks"
+            },
+            {
+                title: "Cross-Team Coordination",
+                content: "Managing dependencies<br>Collaboration techniques"
+            },
+            {
+                title: "Documentation Practices",
+                content: "Maintaining records<br>Process consistency"
+            },
+            {
+                title: "Problem-Solving",
+                content: "Root cause identification<br>Implementing improvements"
+            }
+        ]
+    },
+    {
+        id: '12',
+        title: 'Operational Excellence & Performance',
+        shortDescription: 'Achieve high-performance workplace operations with performance metrics and continuous improvement.',
+        description: 'This course focuses on achieving high-performance workplace operations. Learners will study performance metrics, resource management, and continuous improvement strategies. The course emphasizes accountability and operational risk control. It is intended for managers and operations leaders.',
+        image: './assets/img/operation_excellence.jpg',
+        duration: '38 mins',
+        modules: 5,
+        level: 'Advanced',
+        category: 'Workplace Operations',
+        instructor: {
+            name: "Linda Washington",
+            credentials: "VP of Operations. MBA in Operations Management. Lean Six Sigma Black Belt.",
+            image: "./assets/img/linda.jpg"
+        },
+        syllabus: [
+            {
+                title: "Performance Metrics",
+                content: "Key indicators<br>Measuring success"
+            },
+            {
+                title: "Resource Management",
+                content: "Workforce planning<br>Cost control"
+            },
+            {
+                title: "Continuous Improvement",
+                content: "Improvement frameworks<br>Sustaining gains"
+            },
+            {
+                title: "Operational Risk Management",
+                content: "Identifying risks<br>Mitigation strategies"
+            },
+            {
+                title: "Leadership & Accountability",
+                content: "Managing teams<br>Driving results"
+            }
+        ]
+    },
+
+    // ========== EMERGENCY & COMPLIANCE COURSES (NEW) ==========
+    {
+        id: '13',
+        title: 'Emergency Awareness & Preparedness',
+        shortDescription: 'Introduction to emergency response fundamentals including evacuation and fire safety.',
+        description: 'This course introduces employees to emergency response fundamentals. Learners will understand evacuation procedures, fire safety, and basic emergency actions. The course also explains individual compliance responsibilities. It is essential training for all staff.',
+        image: './assets/img/emergency_awarness.jpg',
+        duration: '16 mins',
+        modules: 5,
+        level: 'Beginner',
+        category: 'Emergency & Compliance',
+        badge: { text: 'Mandatory', color: 'danger' },
+        instructor: {
+            name: "Carlos Rodriguez",
+            credentials: "Emergency Response Coordinator. Certified Fire Safety Director. 9+ years experience.",
+            image: "./assets/img/carloz.jpg"
+        },
+        syllabus: [
+            {
+                title: "Emergency Types",
+                content: "Fire, medical, disasters<br>Workplace-specific risks"
+            },
+            {
+                title: "Evacuation Procedures",
+                content: "Exit routes<br>Assembly points"
+            },
+            {
+                title: "Fire Safety Basics",
+                content: "Fire prevention<br>Extinguisher use"
+            },
+            {
+                title: "Personal Emergency Actions",
+                content: "Staying calm<br>Following instructions"
+            },
+            {
+                title: "Compliance Basics",
+                content: "Employee responsibilities<br>Policy awareness"
+            }
+        ]
+    },
+    {
+        id: '14',
+        title: 'Incident Response & Reporting',
+        shortDescription: 'Build skills in responding to and managing workplace incidents with proper documentation.',
+        description: 'This course builds skills in responding to and managing workplace incidents. Learners will explore response coordination, communication, and incident documentation. The course explains regulatory reporting requirements and timelines. It is designed for supervisors and response team members.',
+        image: './assets/img/incident_response.jpg',
+        duration: '26 mins',
+        modules: 5,
+        level: 'Intermediate',
+        category: 'Emergency & Compliance',
+        instructor: {
+            name: "Jennifer Lee",
+            credentials: "Incident Management Specialist. Certified Emergency Manager (CEM). 11+ years experience.",
+            image: "./assets/img/jennifer.jpg"
+        },
+        syllabus: [
+            {
+                title: "Incident Response Steps",
+                content: "Immediate actions<br>Securing the area"
+            },
+            {
+                title: "Communication During Incidents",
+                content: "Internal alerts<br>External notifications"
+            },
+            {
+                title: "Incident Documentation",
+                content: "Reports and records<br>Accuracy and timelines"
+            },
+            {
+                title: "Regulatory Reporting",
+                content: "Legal obligations<br>Reporting authorities"
+            },
+            {
+                title: "Post-Incident Review",
+                content: "Lessons learned<br>Corrective actions"
+            }
+        ]
+    },
+    {
+        id: '15',
+        title: 'Compliance Management & Audit Readiness',
+        shortDescription: 'In-depth compliance systems and audit preparation for reducing legal risk.',
+        description: 'This course provides an in-depth look at compliance systems and audit preparation. Learners will study inspections, corrective actions, and regulatory standards. The course focuses on reducing legal risk and maintaining organizational readiness. It is intended for compliance managers and senior leaders.',
+        image: './assets/img/compliance_audit.jpg',
+        duration: '36 mins',
+        modules: 5,
+        level: 'Advanced',
+        category: 'Emergency & Compliance',
+        instructor: {
+            name: "Michael Brown",
+            credentials: "Chief Compliance Officer. JD in Regulatory Affairs. Certified Compliance Professional (CCP).",
+            image: "./assets/img/michael.jpg"
+        },
+        syllabus: [
+            {
+                title: "Compliance Frameworks",
+                content: "Laws and standards<br>Organizational roles"
+            },
+            {
+                title: "Audit Planning",
+                content: "Documentation readiness<br>Audit schedules"
+            },
+            {
+                title: "Inspection Management",
+                content: "Handling inspections<br>Responding to findings"
+            },
+            {
+                title: "Corrective & Preventive Actions",
+                content: "Closing gaps<br>Preventing recurrence"
+            },
+            {
+                title: "Compliance Leadership",
+                content: "Maintaining readiness<br>Reducing legal risk"
             }
         ]
     }
@@ -571,104 +918,4 @@ function renderCourseDetail(id) {
             });
         }
     }
-}
-
-// --- CHAT BOT (Existing) ---
-let isChatOpen = false;
-
-window.toggleChat = () => {
-    isChatOpen = !isChatOpen;
-    const widget = document.getElementById('chat-widget');
-    const icon = document.getElementById('chat-icon');
-    const btn = document.getElementById('chat-toggle-btn');
-    if (!widget) return;
-
-    if (isChatOpen) {
-        widget.classList.remove('closed');
-        icon.classList.remove('bi-chat-dots-fill');
-        icon.classList.add('bi-x-lg');
-        btn.classList.remove('btn-safety');
-        btn.classList.add('btn-dark');
-        setTimeout(() => {
-            const input = document.getElementById('chat-input');
-            if(input) input.focus();
-        }, 300);
-    } else {
-        widget.classList.add('closed');
-        icon.classList.remove('bi-x-lg');
-        icon.classList.add('bi-chat-dots-fill');
-        btn.classList.remove('btn-dark');
-        btn.classList.add('btn-safety');
-    }
-};
-
-window.handleChatKeyPress = (e) => {
-    if (e.key === 'Enter') sendMessage();
-};
-
-window.sendMessage = async () => {
-    const input = document.getElementById('chat-input');
-    const msgContainer = document.getElementById('chat-messages');
-    const text = input.value.trim();
-
-    if (!text) return;
-
-    // User Msg
-    appendMessage('user', text);
-    input.value = '';
-    input.disabled = true;
-
-    // Loading State
-    const loadingId = 'loading-' + Date.now();
-    const loadingHtml = `
-            <div id="${loadingId}" class="d-flex justify-content-start">
-            <div class="bg-white border p-2 rounded">
-                <div class="spinner-border spinner-border-sm text-secondary" role="status">
-                <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
-            </div>`;
-    msgContainer.insertAdjacentHTML('beforeend', loadingHtml);
-    msgContainer.scrollTop = msgContainer.scrollHeight;
-
-    try {
-        // Initialize Gemini
-        const apiKey = process.env.API_KEY;
-        if (!apiKey) throw new Error("API Key missing");
-
-        const ai = new GoogleGenAI({ apiKey });
-        const systemPrompt = "You are an expert Workplace Safety Consultant (OSHA certified equivalent). Provide brief, actionable, and serious safety advice. If the question implies an immediate life-threatening emergency, advise them to call emergency services immediately. Keep answers under 100 words.";
-
-        const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
-            contents: text,
-            config: { systemInstruction: systemPrompt }
-        });
-
-        document.getElementById(loadingId).remove();
-        appendMessage('bot', response.text || "I couldn't process that.");
-
-    } catch (error) {
-        console.error(error);
-        if (document.getElementById(loadingId)) document.getElementById(loadingId).remove();
-        appendMessage('bot', "System offline. Please check your connection.");
-    } finally {
-        input.disabled = false;
-        input.focus();
-    }
-};
-
-function appendMessage(role, text) {
-    const msgContainer = document.getElementById('chat-messages');
-    const div = document.createElement('div');
-    div.className = `d-flex ${role === 'user' ? 'justify-content-end' : 'justify-content-start'}`;
-
-    const bubble = document.createElement('div');
-    bubble.className = `p-2 rounded ${role === 'user' ? 'bg-primary text-white' : 'bg-white border text-dark'}`;
-    bubble.style.maxWidth = '85%';
-    bubble.innerText = text;
-
-    div.appendChild(bubble);
-    msgContainer.appendChild(div);
-    msgContainer.scrollTop = msgContainer.scrollHeight;
 }
